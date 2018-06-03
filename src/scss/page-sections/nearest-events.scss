@@ -1,0 +1,112 @@
+@import '../variables';
+@import '../mixins';
+@import '../common';
+
+.title {
+  @include lobster-font;
+  font-weight: 400;
+  padding: .5em 0;
+  font-size: 1.8em;
+  color: $txt-light-green2;
+  text-align: left;
+
+  span {
+    @include lobster-font;
+    color: $txt-dark-green;
+  }
+}
+
+.nearest-events {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  overflow: hidden;
+
+  &::after {
+    clear: both;
+  }
+
+  .search-part {
+    width: 50%;
+    float: left;
+  }
+
+  .results-part {
+    width: 50%;
+    float: right;
+  }
+
+  .search-event-form {
+    width: 85%;
+    margin: auto;
+
+    h3 {
+      @include lobster-font;
+      font-weight: 700;
+      font-size: .8em;
+      background-color: $txt-light-green2;
+      padding: .8em 0;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border: 2px $txt-light-green2 solid;
+      color: white;
+    }
+
+    .form-body {
+      background-color: $fill-yellow;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border: 2px $fill-yellow solid;
+      padding: 1em 2em 2em;
+
+      label {
+        @include lobster-font;
+        letter-spacing: 1px;
+        text-align: left;
+        display: inline-block;
+        color: $txt-light-green;
+        font-weight: 700;
+        font-size: .8em;
+        width: 100%;
+      }
+
+      input {
+
+        &[type='text'] {
+          background-color: white;
+          border: $fill-dirty-yellow 1px solid;
+          width: 100%;
+          font-size: 1.6em;
+          padding: .2em .5em;
+          margin: .1em 0 .8em;
+          border-radius: 5px;
+          outline: 0;
+        }
+      }
+    }
+
+    .button-bar {
+      text-align: right;
+
+      button {
+        @include lobster-font;
+        font-size: 1em;
+        color: white;
+        padding: .8em 2em;
+        margin: 1em 0 .8em;
+        background-color: $fill-green;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+    }
+
+  }
+
+}
+
+.categories-list {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+}

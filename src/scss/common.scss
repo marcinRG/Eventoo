@@ -1,0 +1,42 @@
+@import 'mixins';
+@import 'variables';
+@import './utils/fonts';
+
+@include custom-font-mixin-simplified('Alfa Slab One', 'alfaslabone-regular', $path-alfa-slab-one-fonts);
+@include custom-font-mixin-simplified('Font Awesome', 'fa-regular-400', $path-font-awesome-fonts);
+@include custom-font-mixin-simplified('Lobster', 'lobster-regular', $path-lobster-fonts);
+
+@include custom-font-mixin('Lato', 'lato-regular', 400, normal, $path-lato-fonts);
+@include custom-font-mixin('Lato', 'lato-bold', 700, normal, $path-lato-fonts);
+@include custom-font-mixin('Lato', 'lato-light', 300, normal, $path-lato-fonts);
+
+@mixin font-awesome {
+  font-family: 'Font Awesome', sans;
+}
+
+@mixin alfa-slab-font {
+  font-family: 'Alfa Slab One', cursive;
+}
+
+@mixin lato-font {
+  font-family: 'Lato', sans-serif;
+}
+
+@mixin lobster-font {
+  font-family: 'Lobster', cursive;
+}
+
+*,
+html,
+body {
+  @include set-to-zero;
+  @include lato-font;
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+

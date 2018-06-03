@@ -1,0 +1,27 @@
+@import 'libs/font-awesome-scss/variables';
+
+$path-fonts: '../fonts/';
+$path-lato-fonts: '#{$path-fonts}Lato/';
+$path-alfa-slab-one-fonts: '#{$path-fonts}Alfa_Slab_One/';
+$path-font-awesome-fonts: '#{$path-fonts}font-awesome-fonts/';
+$path-lobster-fonts: '#{$path-fonts}Lobster/';
+
+$txt-dark-green: #01a2a6;
+$txt-light-green: #3ddcc8;
+$txt-light-green2: #29d9c2;
+$text-grey: #777;
+
+$fill-green: #c3f37e;
+$fill-greener: #3ddbc7;
+$fill-green-2: #b4ec83;
+$fill-yellow: #ffffa6;
+$fill-dirty-yellow: #f5e99d;
+$flll-yellow-gray: #d8cb7c;
+$fill-light-blue: #f2fefe;
+$fill-dark: #2f2933;
+$border-color: #707070;
+
+//media breaks
+$media-br-1: 768px;
+$media-br-2: 992px;
+$media-br-3: 1200px;
