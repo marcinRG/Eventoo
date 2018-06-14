@@ -1,38 +1,30 @@
 var devFolder = './src/';
-var testFolder ='./test/';
-var jsFolder = devFolder + 'js/';
-var tsFolder = devFolder + 'ts/';
+var assetsFolder = devFolder + 'assets/';
+var tsFolder = devFolder + 'app/';
 var sassFolder = devFolder + 'scss/';
-var cssFolder = devFolder + 'css/';
+var cssFolder = assetsFolder + 'css/';
 
+var appFolder = devFolder + 'app/';
 var serverFolder = './server/';
 var buildPath = './build/';
 
 var paths = {
     client: './src/',
     index: devFolder + 'index.html',
-    allJs: ['./*.js', serverFolder + '**/*.js', jsFolder + '**/*.js'],
     allTSs: [tsFolder + '**/*.ts'],
-    allTSandTest:  [tsFolder + '**/*.ts', testFolder + '**/*.ts'],
-    jsAppFolder: jsFolder,
-    tsFile: tsFolder + 'app.ts',
-    jsFile: jsFolder + 'app.js',
-    compiledJS: devFolder + 'bundle.js',
-    compiledTS: devFolder + 'bundle.ts',
-    fontsSrc: devFolder + 'fonts/**/*.*',
-    imageSrc: devFolder + 'images/**/*.*',
+    app: [appFolder + '**/*.ts'],
+    otherAppResources: [devFolder + 'index.html', devFolder + 'systemjs.config.js', '!' +  assetsFolder + '**/*.*', devFolder + '**/*.html', devFolder + '**/*.css'],
+    assets: assetsFolder + '**/*.*',
+    tsFile: tsFolder + 'main.ts',
     scssStyles: [sassFolder + '**/*.scss','!' + sassFolder + 'libs/' + '**/*.scss'],
     scssFile: sassFolder + 'style.scss',
-    cssStyles: cssFolder,
-    cssFile: cssFolder + 'style.css',
+    cssFile: cssFolder,
 };
 
 var build = {
+    appPath: buildPath + 'app',
     path: buildPath,
-    cssPath: buildPath + 'css',
-    jsPath: buildPath + 'js',
-    fontsPath: buildPath + 'fonts',
-    imagesPath: buildPath + 'images'
+    buildAssets: buildPath + 'assets'
 };
 
 var server = {

@@ -1,0 +1,488 @@
+@font-face {
+  font-family: "Alfa Slab One";
+  src: url("../fonts/Alfa_Slab_One/alfaslabone-regular.eot");
+  src: url("../fonts/Alfa_Slab_One/alfaslabone-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.woff2") format("woff2"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.woff") format("woff"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.ttf") format("truetype"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Font Awesome";
+  src: url("../fonts/font-awesome-fonts/fa-regular-400.eot");
+  src: url("../fonts/font-awesome-fonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../fonts/font-awesome-fonts/fa-regular-400.woff2") format("woff2"), url("../fonts/font-awesome-fonts/fa-regular-400.woff") format("woff"), url("../fonts/font-awesome-fonts/fa-regular-400.ttf") format("truetype"), url("../fonts/font-awesome-fonts/fa-regular-400.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Lobster";
+  src: url("../fonts/Lobster/lobster-regular.eot");
+  src: url("../fonts/Lobster/lobster-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Lobster/lobster-regular.woff2") format("woff2"), url("../fonts/Lobster/lobster-regular.woff") format("woff"), url("../fonts/Lobster/lobster-regular.ttf") format("truetype"), url("../fonts/Lobster/lobster-regular.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-regular.eot");
+  src: url("../fonts/Lato/lato-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-regular.woff2") format("woff2"), url("../fonts/Lato/lato-regular.woff") format("woff"), url("../fonts/Lato/lato-regular.ttf") format("truetype"), url("../fonts/Lato/lato-regular.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 400; }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-bold.eot");
+  src: url("../fonts/Lato/lato-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-bold.woff2") format("woff2"), url("../fonts/Lato/lato-bold.woff") format("woff"), url("../fonts/Lato/lato-bold.ttf") format("truetype"), url("../fonts/Lato/lato-bold.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 700; }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-light.eot");
+  src: url("../fonts/Lato/lato-light.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-light.woff2") format("woff2"), url("../fonts/Lato/lato-light.woff") format("woff"), url("../fonts/Lato/lato-light.ttf") format("truetype"), url("../fonts/Lato/lato-light.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 300; }
+
+*,
+html,
+body {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box; }
+
+@font-face {
+  font-family: "Alfa Slab One";
+  src: url("../fonts/Alfa_Slab_One/alfaslabone-regular.eot");
+  src: url("../fonts/Alfa_Slab_One/alfaslabone-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.woff2") format("woff2"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.woff") format("woff"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.ttf") format("truetype"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Font Awesome";
+  src: url("../fonts/font-awesome-fonts/fa-regular-400.eot");
+  src: url("../fonts/font-awesome-fonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../fonts/font-awesome-fonts/fa-regular-400.woff2") format("woff2"), url("../fonts/font-awesome-fonts/fa-regular-400.woff") format("woff"), url("../fonts/font-awesome-fonts/fa-regular-400.ttf") format("truetype"), url("../fonts/font-awesome-fonts/fa-regular-400.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Lobster";
+  src: url("../fonts/Lobster/lobster-regular.eot");
+  src: url("../fonts/Lobster/lobster-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Lobster/lobster-regular.woff2") format("woff2"), url("../fonts/Lobster/lobster-regular.woff") format("woff"), url("../fonts/Lobster/lobster-regular.ttf") format("truetype"), url("../fonts/Lobster/lobster-regular.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-regular.eot");
+  src: url("../fonts/Lato/lato-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-regular.woff2") format("woff2"), url("../fonts/Lato/lato-regular.woff") format("woff"), url("../fonts/Lato/lato-regular.ttf") format("truetype"), url("../fonts/Lato/lato-regular.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 400; }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-bold.eot");
+  src: url("../fonts/Lato/lato-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-bold.woff2") format("woff2"), url("../fonts/Lato/lato-bold.woff") format("woff"), url("../fonts/Lato/lato-bold.ttf") format("truetype"), url("../fonts/Lato/lato-bold.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 700; }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-light.eot");
+  src: url("../fonts/Lato/lato-light.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-light.woff2") format("woff2"), url("../fonts/Lato/lato-light.woff") format("woff"), url("../fonts/Lato/lato-light.ttf") format("truetype"), url("../fonts/Lato/lato-light.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 300; }
+
+*,
+html,
+body {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box; }
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  z-index: 35; }
+  .navbar .nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1em 2em 4em;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+    overflow: hidden; }
+    .navbar .nav::after {
+      clear: both; }
+    .navbar .nav .logo {
+      font-family: 'Alfa Slab One', cursive;
+      color: #01a2a6;
+      font-size: 1.2em;
+      float: left;
+      padding: .5em;
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.7); }
+      .navbar .nav .logo span {
+        font-family: 'Alfa Slab One', cursive;
+        color: white; }
+      .navbar .nav .logo::before {
+        font-family: 'Font Awesome', sans;
+        content: "\f073";
+        color: #f5e99d;
+        padding: 0 .25em; }
+    .navbar .nav .menu-items {
+      float: right;
+      list-style-type: none;
+      margin-right: 4em; }
+      .navbar .nav .menu-items .item {
+        display: inline-block;
+        margin: 0 .1em; }
+        .navbar .nav .menu-items .item a {
+          font-family: 'Lato', sans-serif;
+          font-weight: 700;
+          font-size: .8em;
+          text-decoration: none;
+          color: white;
+          padding: .8em 1.6em;
+          display: block;
+          border: transparent solid 3px;
+          text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+          border-radius: 20px; }
+          .navbar .nav .menu-items .item a:hover {
+            border: white solid 3px; }
+
+@font-face {
+  font-family: "Alfa Slab One";
+  src: url("../fonts/Alfa_Slab_One/alfaslabone-regular.eot");
+  src: url("../fonts/Alfa_Slab_One/alfaslabone-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.woff2") format("woff2"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.woff") format("woff"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.ttf") format("truetype"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Font Awesome";
+  src: url("../fonts/font-awesome-fonts/fa-regular-400.eot");
+  src: url("../fonts/font-awesome-fonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../fonts/font-awesome-fonts/fa-regular-400.woff2") format("woff2"), url("../fonts/font-awesome-fonts/fa-regular-400.woff") format("woff"), url("../fonts/font-awesome-fonts/fa-regular-400.ttf") format("truetype"), url("../fonts/font-awesome-fonts/fa-regular-400.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Lobster";
+  src: url("../fonts/Lobster/lobster-regular.eot");
+  src: url("../fonts/Lobster/lobster-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Lobster/lobster-regular.woff2") format("woff2"), url("../fonts/Lobster/lobster-regular.woff") format("woff"), url("../fonts/Lobster/lobster-regular.ttf") format("truetype"), url("../fonts/Lobster/lobster-regular.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-regular.eot");
+  src: url("../fonts/Lato/lato-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-regular.woff2") format("woff2"), url("../fonts/Lato/lato-regular.woff") format("woff"), url("../fonts/Lato/lato-regular.ttf") format("truetype"), url("../fonts/Lato/lato-regular.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 400; }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-bold.eot");
+  src: url("../fonts/Lato/lato-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-bold.woff2") format("woff2"), url("../fonts/Lato/lato-bold.woff") format("woff"), url("../fonts/Lato/lato-bold.ttf") format("truetype"), url("../fonts/Lato/lato-bold.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 700; }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-light.eot");
+  src: url("../fonts/Lato/lato-light.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-light.woff2") format("woff2"), url("../fonts/Lato/lato-light.woff") format("woff"), url("../fonts/Lato/lato-light.ttf") format("truetype"), url("../fonts/Lato/lato-light.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 300; }
+
+*,
+html,
+body {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box; }
+
+.title-section {
+  margin: 0 auto;
+  background-image: url("../images/bg-hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  width: 100%;
+  max-width: 1200px;
+  height: 305px;
+  text-align: center; }
+  .title-section h1 {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 4em;
+    color: white;
+    padding-top: 2em;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.85); }
+    .title-section h1 span {
+      font-family: 'Alfa Slab One', cursive;
+      color: #01a2a6; }
+  .title-section p {
+    color: #f2fefe;
+    font-weight: 300;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.7); }
+
+@font-face {
+  font-family: "Alfa Slab One";
+  src: url("../fonts/Alfa_Slab_One/alfaslabone-regular.eot");
+  src: url("../fonts/Alfa_Slab_One/alfaslabone-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.woff2") format("woff2"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.woff") format("woff"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.ttf") format("truetype"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Font Awesome";
+  src: url("../fonts/font-awesome-fonts/fa-regular-400.eot");
+  src: url("../fonts/font-awesome-fonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../fonts/font-awesome-fonts/fa-regular-400.woff2") format("woff2"), url("../fonts/font-awesome-fonts/fa-regular-400.woff") format("woff"), url("../fonts/font-awesome-fonts/fa-regular-400.ttf") format("truetype"), url("../fonts/font-awesome-fonts/fa-regular-400.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Lobster";
+  src: url("../fonts/Lobster/lobster-regular.eot");
+  src: url("../fonts/Lobster/lobster-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Lobster/lobster-regular.woff2") format("woff2"), url("../fonts/Lobster/lobster-regular.woff") format("woff"), url("../fonts/Lobster/lobster-regular.ttf") format("truetype"), url("../fonts/Lobster/lobster-regular.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-regular.eot");
+  src: url("../fonts/Lato/lato-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-regular.woff2") format("woff2"), url("../fonts/Lato/lato-regular.woff") format("woff"), url("../fonts/Lato/lato-regular.ttf") format("truetype"), url("../fonts/Lato/lato-regular.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 400; }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-bold.eot");
+  src: url("../fonts/Lato/lato-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-bold.woff2") format("woff2"), url("../fonts/Lato/lato-bold.woff") format("woff"), url("../fonts/Lato/lato-bold.ttf") format("truetype"), url("../fonts/Lato/lato-bold.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 700; }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-light.eot");
+  src: url("../fonts/Lato/lato-light.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-light.woff2") format("woff2"), url("../fonts/Lato/lato-light.woff") format("woff"), url("../fonts/Lato/lato-light.ttf") format("truetype"), url("../fonts/Lato/lato-light.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 300; }
+
+*,
+html,
+body {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box; }
+
+.title {
+  font-family: 'Lobster', cursive;
+  font-weight: 400;
+  padding: .5em 0;
+  font-size: 1.8em;
+  color: #29d9c2;
+  text-align: left; }
+  .title span {
+    font-family: 'Lobster', cursive;
+    color: #01a2a6; }
+
+.nearest-events {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  overflow: hidden; }
+  .nearest-events::after {
+    clear: both; }
+  .nearest-events .search-part {
+    width: 50%;
+    float: left; }
+  .nearest-events .results-part {
+    width: 50%;
+    float: right; }
+  .nearest-events .search-event-form {
+    width: 85%;
+    margin: auto; }
+    .nearest-events .search-event-form h3 {
+      font-family: 'Lobster', cursive;
+      font-weight: 700;
+      font-size: .8em;
+      background-color: #29d9c2;
+      padding: .8em 0;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border: 2px #29d9c2 solid;
+      color: white; }
+    .nearest-events .search-event-form .form-body {
+      background-color: #ffffa6;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border: 2px #ffffa6 solid;
+      padding: 1em 2em 2em; }
+      .nearest-events .search-event-form .form-body label {
+        font-family: 'Lobster', cursive;
+        letter-spacing: 1px;
+        text-align: left;
+        display: inline-block;
+        color: #3ddcc8;
+        font-weight: 700;
+        font-size: .8em;
+        width: 100%; }
+      .nearest-events .search-event-form .form-body input[type='text'] {
+        background-color: white;
+        border: #f5e99d 1px solid;
+        width: 100%;
+        font-size: 1.6em;
+        padding: .2em .5em;
+        margin: .1em 0 .8em;
+        border-radius: 5px;
+        outline: 0; }
+    .nearest-events .search-event-form .button-bar {
+      text-align: right; }
+      .nearest-events .search-event-form .button-bar button {
+        font-family: 'Lobster', cursive;
+        font-size: 1em;
+        color: white;
+        padding: .8em 2em;
+        margin: 1em 0 .8em;
+        background-color: #c3f37e;
+        border-radius: 20px;
+        cursor: pointer; }
+
+.categories-list {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px; }
+
+@font-face {
+  font-family: "Alfa Slab One";
+  src: url("../fonts/Alfa_Slab_One/alfaslabone-regular.eot");
+  src: url("../fonts/Alfa_Slab_One/alfaslabone-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.woff2") format("woff2"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.woff") format("woff"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.ttf") format("truetype"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Font Awesome";
+  src: url("../fonts/font-awesome-fonts/fa-regular-400.eot");
+  src: url("../fonts/font-awesome-fonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../fonts/font-awesome-fonts/fa-regular-400.woff2") format("woff2"), url("../fonts/font-awesome-fonts/fa-regular-400.woff") format("woff"), url("../fonts/font-awesome-fonts/fa-regular-400.ttf") format("truetype"), url("../fonts/font-awesome-fonts/fa-regular-400.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Lobster";
+  src: url("../fonts/Lobster/lobster-regular.eot");
+  src: url("../fonts/Lobster/lobster-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Lobster/lobster-regular.woff2") format("woff2"), url("../fonts/Lobster/lobster-regular.woff") format("woff"), url("../fonts/Lobster/lobster-regular.ttf") format("truetype"), url("../fonts/Lobster/lobster-regular.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-regular.eot");
+  src: url("../fonts/Lato/lato-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-regular.woff2") format("woff2"), url("../fonts/Lato/lato-regular.woff") format("woff"), url("../fonts/Lato/lato-regular.ttf") format("truetype"), url("../fonts/Lato/lato-regular.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 400; }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-bold.eot");
+  src: url("../fonts/Lato/lato-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-bold.woff2") format("woff2"), url("../fonts/Lato/lato-bold.woff") format("woff"), url("../fonts/Lato/lato-bold.ttf") format("truetype"), url("../fonts/Lato/lato-bold.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 700; }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-light.eot");
+  src: url("../fonts/Lato/lato-light.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-light.woff2") format("woff2"), url("../fonts/Lato/lato-light.woff") format("woff"), url("../fonts/Lato/lato-light.ttf") format("truetype"), url("../fonts/Lato/lato-light.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 300; }
+
+*,
+html,
+body {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box; }
+
+.categories-list .categories {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 1em 0 2em;
+  position: relative; }
+
+.categories-list .category {
+  box-sizing: border-box;
+  display: inline-block;
+  max-width: 360px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  margin: .5em; }
+  .categories-list .category::after {
+    background-color: rgba(0, 0, 0, 0);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition-duration: .5s;
+    width: 100%; }
+  .categories-list .category:hover::after {
+    background-color: rgba(0, 0, 0, 0.5); }
+  .categories-list .category img {
+    display: block;
+    height: auto;
+    width: 360px; }
+  .categories-list .category .desc {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 5; }
+    .categories-list .category .desc .category-name {
+      font-family: 'Lobster', cursive;
+      padding: 20% 0 .5em;
+      color: white;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.85); }
+    .categories-list .category .desc p {
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.85);
+      display: inline-block;
+      font-size: .8em;
+      color: white;
+      width: 80%; }
+
+@font-face {
+  font-family: "Alfa Slab One";
+  src: url("../fonts/Alfa_Slab_One/alfaslabone-regular.eot");
+  src: url("../fonts/Alfa_Slab_One/alfaslabone-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.woff2") format("woff2"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.woff") format("woff"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.ttf") format("truetype"), url("../fonts/Alfa_Slab_One/alfaslabone-regular.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Font Awesome";
+  src: url("../fonts/font-awesome-fonts/fa-regular-400.eot");
+  src: url("../fonts/font-awesome-fonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../fonts/font-awesome-fonts/fa-regular-400.woff2") format("woff2"), url("../fonts/font-awesome-fonts/fa-regular-400.woff") format("woff"), url("../fonts/font-awesome-fonts/fa-regular-400.ttf") format("truetype"), url("../fonts/font-awesome-fonts/fa-regular-400.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Lobster";
+  src: url("../fonts/Lobster/lobster-regular.eot");
+  src: url("../fonts/Lobster/lobster-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Lobster/lobster-regular.woff2") format("woff2"), url("../fonts/Lobster/lobster-regular.woff") format("woff"), url("../fonts/Lobster/lobster-regular.ttf") format("truetype"), url("../fonts/Lobster/lobster-regular.svg#icon") format("svg"); }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-regular.eot");
+  src: url("../fonts/Lato/lato-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-regular.woff2") format("woff2"), url("../fonts/Lato/lato-regular.woff") format("woff"), url("../fonts/Lato/lato-regular.ttf") format("truetype"), url("../fonts/Lato/lato-regular.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 400; }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-bold.eot");
+  src: url("../fonts/Lato/lato-bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-bold.woff2") format("woff2"), url("../fonts/Lato/lato-bold.woff") format("woff"), url("../fonts/Lato/lato-bold.ttf") format("truetype"), url("../fonts/Lato/lato-bold.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 700; }
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato/lato-light.eot");
+  src: url("../fonts/Lato/lato-light.eot?#iefix") format("embedded-opentype"), url("../fonts/Lato/lato-light.woff2") format("woff2"), url("../fonts/Lato/lato-light.woff") format("woff"), url("../fonts/Lato/lato-light.ttf") format("truetype"), url("../fonts/Lato/lato-light.svg#icon") format("svg");
+  font-style: normal;
+  font-weight: 300; }
+
+*,
+html,
+body {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box; }
+
+.footer {
+  margin: 0 auto;
+  background-color: #2f2933;
+  color: white;
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  height: 100px;
+  padding: 4em 0 .5em; }
+  .footer .txt-info {
+    font-size: .9em;
+    color: white;
+    font-weight: 300; }

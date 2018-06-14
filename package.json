@@ -10,6 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/jasmine": "^2.8.8",
+    "@types/node": "^10.3.3",
     "browserify": "^16.2.2",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
@@ -26,6 +27,7 @@
     "gulp-sass": "^4.0.1",
     "gulp-sass-import-once": "^2.0.2",
     "gulp-sass-lint": "^1.4.0",
+    "gulp-sourcemaps": "^2.6.4",
     "gulp-stylelint": "^7.0.0",
     "gulp-task-listing": "^1.0.1",
     "gulp-tslint": "^8.1.3",

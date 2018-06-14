@@ -9,7 +9,7 @@ var port = process.env.PORT || portDefault;
 var app = express();
 
 app.use(express.static(path.join(__dirname, '../' + pathSettings.pageBuild)));
-app.use(express.static(path.join(__dirname, '../' + pathSettings.assets)));
+//app.use(express.static(path.join(__dirname, '../' + pathSettings.assets)));
 app.use('/lib', express.static(path.join(__dirname, '../' + pathSettings.lib)));
 
 app.listen(port, function () {

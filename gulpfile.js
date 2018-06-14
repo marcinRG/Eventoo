@@ -7,6 +7,7 @@ var $ = require('gulp-load-plugins')({lazy: true});
 var sassLint = require('gulp-sass-lint');
 var tsify = require('tsify');
 var del = require('del');
+var tsProject = ts.createProject('tsconfig.json');
 //var sassImportOnce = require('gulp-sass-import-once');
 var settings = require('./gulp.settings/settings');
 
@@ -38,50 +39,23 @@ gulp.task('test-run', function (done) {
     runTests(done);
 });
 
+gulp.task('copy-other-resources', function () {
+    msg('Kopiowanie dododatkowych plików aplikacji');
+    return gulp.src(settings.app.otherAppResources)
+        .pipe(gulp.dest(settings.build.path));
+});
+
+gulp.task('copy-app-assets', function () {
+    msg('Kopiowanie assetów aplikacji');
+    return gulp.src(settings.app.assets)
+        .pipe(gulp.dest(settings.build.buildAssets));
+});
+
 gulp.task('sass-compile', ['lint-sass'], function () {
     msg('Kompilacja plików scss -> css');
     return gulp.src(settings.app.scssFile)
         .pipe($.sass().on('error', $.sass.logError))
-        .pipe(gulp.dest(settings.app.cssStyles));
-});
-
-gulp.task('browserify-compil', [], function () {
-    return browserify({
-        entries: [settings.app.tsFile],
-        debug: true
-    }).plugin(tsify)
-        .bundle()
-        .pipe(source(settings.app.compiledJS))
-        .pipe(gulp.dest('./'));
-});
-
-gulp.task('browserify-inject-js', ['browserify-compil'], function () {
-    return gulp.src(settings.app.index)
-        .pipe($.inject(gulp.src(settings.app.compiledJS, {read: false}), {relative: true}))
-        .pipe(gulp.dest(settings.app.client));
-});
-
-gulp.task('build-prepare', ['browserify-inject-js', 'inject-css'], function () {
-});
-
-gulp.task('dist-optimize', ['build-prepare', 'copyToBuild-fonts', 'test-run'], function () {
-    var cleanCss = require('gulp-clean-css');
-    return gulp.src(settings.app.index)
-        .pipe($.plumber())
-        .pipe($.useref())
-        .pipe($.if('*.js', $.uglify()))
-        .pipe($.if('*.css', cleanCss()))
-        .pipe(gulp.dest(settings.build.path));
-});
-
-gulp.task('copyToBuild-fonts', function () {
-    msg('Kopiowanie fontów');
-    return gulp.src(settings.app.fontsSrc)
-        .pipe(gulp.dest(settings.build.fontsPath));
-});
-
-gulp.task('run-dist', ['dist-optimize'], function () {
-    serve(false);
+        .pipe(gulp.dest(settings.app.cssFile));
 });
 
 gulp.task('run-dev', [], function () {
@@ -96,14 +70,17 @@ gulp.task('sass-watcher', function () {
     gulp.watch(settings.app.scssStyles, ['sass-compile', 'inject-css']);
 });
 
-gulp.task('inject-css', ['sass-compile'], function () {
-    return gulp.src(settings.app.index)
-        .pipe($.inject(gulp.src(settings.app.cssFile, {read: false}), {relative: true}))
-        .pipe(gulp.dest(settings.app.client));
+
+gulp.task('ts-compile', ['code-check', 'copy-other-resources', 'copy-app-assets'], function () {
+    return gulp.src(settings.app.app)
+        .pipe($.sourcemaps.init())
+        .pipe(tsProject())
+        .pipe($.sourcemaps.write('.', {sourceRoot: '/src'}))
+        .pipe(gulp.dest(settings.build.appPath));
 });
 
 gulp.task('ts-watcher', function () {
-    gulp.watch(settings.app.allTSs, ['browserify-inject-js']);
+    //gulp.watch(settings.app.allTSs, ['browserify-inject-js']);
 });
 
 function serve(isDev) {

@@ -5,6 +5,7 @@
   ],
   "jsRules": {},
   "rules": {
+    "object-literal-sort-keys": false,
     "comment-format": false,
     "ordered-imports": false,
     "no-shadowed-variable": false,

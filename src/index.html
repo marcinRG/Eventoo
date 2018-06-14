@@ -1,16 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventoo</title>
-    <!-- build:css css/style.css -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- endinject -->
-    <!-- endbuild -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <base href="/">
+    <!-- 1. Load libraries
+     Polyfill(s) for older browsers-->
+    <script src="lib/core-js/client/shim.min.js"></script>
 
+    <script src="lib/zone.js/dist/zone.js"></script>
+    <script src="lib/reflect-metadata/Reflect.js"></script>
+    <script src="lib/systemjs/dist/system.src.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+    <script>
+        System.import('app')
+            .then(null, console.error.bind(console));
+    </script>
+
+</head>
+
+<!-- 3. Display the application -->
 <body>
 <nav class="navbar">
     <div class="nav">
@@ -25,10 +37,7 @@
     </div>
 </nav>
 <main>
-    <section class="title-section">
-        <h1>Even<span>too</span></h1>
-        <p>Find your next event</p>
-    </section>
+    <eventoo-app></eventoo-app>
     <section class="nearest-events">
         <div class="search-part">
             <h2 class="title">Find nearest <span>events</span></h2>
@@ -56,7 +65,7 @@
         <h2 class="title">Browse by <span>top categories</span></h2>
         <div class="categories">
             <div class="category">
-                <img src="images/category-images/arts.jpg" alt="arts">
+                <img src="assets/images/category-images/arts.jpg" alt="arts">
                 <div class="desc">
                     <h3 class="category-name">Arts</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cupiditate doloremque eos
@@ -64,7 +73,7 @@
                 </div>
             </div>
             <div class="category">
-                <img src="images/category-images/cities.jpg" alt="arts">
+                <img src="assets/images/category-images/cities.jpg" alt="arts">
                 <div class="desc">
                     <h3 class="category-name">Cities</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cupiditate doloremque eos
@@ -72,7 +81,7 @@
                 </div>
             </div>
             <div class="category">
-                <img src="images/category-images/food.jpg" alt="arts">
+                <img src="assets/images/category-images/food.jpg" alt="arts">
                 <div class="desc">
                     <h3 class="category-name">Food</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cupiditate doloremque eos
@@ -80,7 +89,7 @@
                 </div>
             </div>
             <div class="category">
-                <img src="images/category-images/parties.jpg" alt="arts">
+                <img src="assets/images/category-images/parties.jpg" alt="arts">
                 <div class="desc">
                     <h3 class="category-name">Parties</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cupiditate doloremque eos
@@ -88,7 +97,7 @@
                 </div>
             </div>
             <div class="category">
-                <img src="images/category-images/school.jpg" alt="arts">
+                <img src="assets/images/category-images/school.jpg" alt="arts">
                 <div class="desc">
                     <h3 class="category-name">Classes</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cupiditate doloremque eos
@@ -96,7 +105,7 @@
                 </div>
             </div>
             <div class="category">
-                <img src="images/category-images/sports.jpg" alt="arts">
+                <img src="assets/images/category-images/sports.jpg" alt="arts">
                 <div class="desc">
                     <h3 class="category-name">Sports</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cupiditate doloremque eos
@@ -111,11 +120,5 @@
 <footer class="footer">
     <span class="txt-info">2018. All rights reserved</span>
 </footer>
-
-<!-- build:js js/app.js -->
-<!-- inject:js -->
-<script src="bundle.js"></script>
-<!-- endinject -->
-<!-- endbuild -->
 </body>
 </html>
