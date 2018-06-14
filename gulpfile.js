@@ -84,7 +84,7 @@ gulp.task('run-dist', ['dist-optimize'], function () {
     serve(false);
 });
 
-gulp.task('run-dev', ['browserify-inject-js', 'inject-css', 'test-run'], function () {
+gulp.task('run-dev', [], function () {
     serve(true);
 });
 

@@ -4,8 +4,9 @@ var serverPath = './server/';
 
 var paths = {
     page: './src',
-    pageProd: './build',
+    pageBuild: './build',
     lib: './node_modules',
+    assets: './src/assets',
 };
 
 var error = {
