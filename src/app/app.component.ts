@@ -1,13 +1,12 @@
 import {Component} from '@angular/core';
 
-declare var __moduleName: string;
-
 @Component({
     moduleId: module.id,
     selector: 'eventoo-app',
     templateUrl: './app.component.html',
 })
 export class AppComponent {
-    public title: string = 'Eventoo';
-    public subtitle: string = 'events';
+    public titleBig: string = 'Even';
+    public titleSmall: string = 'too';
+    public subtitle: string = 'find your nearest events';
 }

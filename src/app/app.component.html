@@ -1,8 +1,11 @@
+<body>
+<nav-bar></nav-bar>
 <section class="title-section">
-  <h1>Even<span>too</span></h1>
-  <p>Find your next event</p>
+    <h1>{{titleBig}}<span>{{titleSmall}}</span></h1>
+    <p>{{subtitle}}</p>
 </section>
-
-
-
-
+<router-outlet></router-outlet>
+<footer class="footer">
+    <span class="txt-info">2018. All rights reserved</span>
+</footer>
+</body>

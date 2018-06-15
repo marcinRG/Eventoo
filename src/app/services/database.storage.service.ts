@@ -1,40 +1,16 @@
-import { AppSettings } from '../settings/AppSettings';
-import * as firebase from 'firebase';
-import { ICategory } from '../model/ICategory';
+import { AppSettings } from '../settings/appSettings';
 
-const firebaseApp = firebase.initializeApp(AppSettings.dbConfig);
+import { ICategory } from '../model/ICategory';
 
 class StorageService {
     private categoriesName: string = 'categories';
     private eventsName: string = 'events';
-    private database = firebaseApp.database();
+    private database = AppSettings.fireBaseApp.database();
     private categoriesRef = this.database.ref().child(this.categoriesName);
     private eventsRef = this.database.ref().child(this.eventsName);
 
     public test() {
         console.log('test');
-        // this.database.ref().child(this.events).set(
-        //     {
-        //         alanisawesome: {
-        //             date_of_birth: "June 23, 1912",
-        //             full_name: "Alan Turing"
-        //         },
-        //         gracehop: {
-        //             date_of_birth: "December 9, 1906",
-        //             full_name: "Grace Hopper"
-        //         }
-        //     }
-        // );
-        // //adding data
-        // this.database.ref().child(this.events).push().set({
-        //     date_of_birth: "December 25, 1976",
-        //     full_name: "Coco Jambo"
-        // });
-        // //adding data shorthand notation
-        // this.database.ref().child(this.events).push({
-        //     date_of_birth: "June 25, 1996",
-        //     full_name: "Xavras Wyzryn"
-        // });
     }
 
     public getAllCategories(): Promise<any> {
@@ -74,4 +50,4 @@ class StorageService {
     }
 }
 
-export const storageService: StorageService = new StorageService();
+export const databaseStorageService: StorageService = new StorageService();

@@ -1,3 +1,5 @@
+import {initializeApp} from 'firebase';
+
 export class AppSettings {
     public static dbConfig = {
         apiKey: 'AIzaSyBwQFo8aufjdMTAMGn345J9niDM17lFpfw',
@@ -7,6 +9,7 @@ export class AppSettings {
         storageBucket: 'eventoo-db.appspot.com',
         messagingSenderId: '256560182702',
     };
+    public static fireBaseApp = initializeApp(AppSettings.dbConfig);
     public static maps = {
         apiKey: 'AIzaSyBwQFo8aufjdMTAMGn345J9niDM17lFpfw',
     };
