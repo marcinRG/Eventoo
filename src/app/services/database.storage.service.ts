@@ -1,53 +1,90 @@
-import { AppSettings } from '../settings/appSettings';
+import {AppSettings} from '../settings/appSettings';
+import {ICategory} from '../model/ICategory';
+import {database} from 'firebase';
+import {IEvent} from '../model/IEvent';
 
-import { ICategory } from '../model/ICategory';
+const appDatabase = AppSettings.fireBaseApp.database();
 
 class StorageService {
     private categoriesName: string = 'categories';
+    private categoriesRef: database.Reference = appDatabase.ref().child(this.categoriesName);
     private eventsName: string = 'events';
-    private database = AppSettings.fireBaseApp.database();
-    private categoriesRef = this.database.ref().child(this.categoriesName);
-    private eventsRef = this.database.ref().child(this.eventsName);
-
-    public test() {
-        console.log('test');
-    }
+    private eventsRef: database.Reference = appDatabase.ref().child(this.eventsName);
 
     public getAllCategories(): Promise<any> {
-        const promise = new Promise<any>((resolve, reject) => {
-            this.categoriesRef.on('value', (snapshot) => {
-                console.log(snapshot.val());
-                resolve(snapshot.val());
-            }, (errorObject) => {
-                console.log('Categories read failed, error:' + errorObject.code);
-                reject(errorObject.code);
-            });
-        });
-        return promise;
+        return getAll(this.categoriesRef);
     }
 
-    public removeAllCategories(): any {
-        console.log('remove all categories');
-        this.categoriesRef.remove();
-        //this.database.ref().child(this.categoriesName).remove();
+    public removeAllCategories(): Promise<any> {
+        return removeAll(this.categoriesRef);
     }
 
-    public updateCategory(category: ICategory): any {
-        console.log('update category');
-        this.categoriesRef.child(category.id).update(category);
+    public updateCategory(category: ICategory): Promise<any> {
+        return updateElem(category,this.categoriesRef);
     }
 
-    public addCategory(category: ICategory): void {
-        console.log('add category');
-        const key = this.categoriesRef.push().key;
-        category.id = key;
-        this.categoriesRef.child(key).update(category);
+    public addCategory(category: ICategory): Promise<any> {
+        return addElem(category,this.categoriesRef);
     }
 
-    public removeCategory(category: ICategory): void {
-        console.log('remove category');
-        this.categoriesRef.child(category.id).remove();
+    public removeCategory(category: ICategory): Promise<any> {
+        return removeElem(category,this.categoriesRef);
+    }
+
+    public getAllEvents(): Promise<any> {
+        return getAll(this.eventsRef);
+    }
+
+    public removeAllEvents(): Promise<any> {
+        return removeAll(this.eventsRef);
+    }
+
+    public updateEvent(category: IEvent): Promise<any> {
+        return updateElem(category,this.eventsRef);
+    }
+
+    public addEvent(category: IEvent): Promise<any> {
+        return addElem(category,this.eventsRef);
+    }
+
+    public removeEvent(category: IEvent): Promise<any> {
+        return removeElem(category,this.eventsRef);
     }
 }
 
 export const databaseStorageService: StorageService = new StorageService();
+
+function raw2array(obj: Object): any[] {
+    return Object.keys(obj).map((key) => {
+        return obj[key];
+    });
+}
+
+function addElem(obj: any, ref: database.Reference): Promise<any> {
+    const key = ref.push().key;
+    obj.id = key;
+    return ref.child(key).update(obj);
+}
+
+function removeElem(obj: any, ref: database.Reference): Promise<any> {
+    return ref.child(obj.id).remove();
+}
+
+function updateElem(obj: any, ref: database.Reference): Promise<any> {
+    return ref.child(obj.id).update(obj);
+}
+
+function removeAll(ref: database.Reference): Promise<any> {
+    return ref.remove();
+}
+
+function getAll(ref: database.Reference): Promise<any> {
+    const promise = new Promise<any>((resolve, reject) => {
+        ref.on('value', (snapshot) => {
+            resolve(raw2array(snapshot.val()));
+        }, (errorObject) => {
+            reject(errorObject);
+        });
+    });
+    return promise;
+}

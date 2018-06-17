@@ -70,6 +70,16 @@ gulp.task('sass-watcher', function () {
     gulp.watch(settings.app.scssStyles, ['sass-compile', 'inject-css']);
 });
 
+gulp.task('compile-remote-tests', [], function () {
+    return browserify({
+        entries: [settings.remote.tsFile],
+        debug: true
+    }).plugin(tsify)
+        .bundle()
+        .pipe(source(settings.remote.compiledJS))
+        .pipe(gulp.dest('./'));
+});
+
 
 gulp.task('ts-compile', ['code-check', 'copy-other-resources', 'copy-app-assets'], function () {
     return gulp.src(settings.app.app)

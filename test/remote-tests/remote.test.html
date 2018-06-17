@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remote tests</title>
+    <style>
+
+        * {
+            text-align: center;
+            font-family: Arial, Verdana;
+        }
+
+        form, div {
+            width: 600px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 0.5em;
+        }
+
+        input[type="button"] {
+            padding: 0.5em;
+            border: 1px solid black;
+        }
+
+    </style>
+
+
+</head>
+<body>
+<p>Categories form</p>
+<form>
+    <label>Id*</label>
+    <input type="text" name="id" placeholder="id">
+    <label>Category name</label>
+    <input type="text" name="name" placeholder="category name">
+    <label>Category description</label>
+    <textarea rows="10" name="description" placeholder="category description"></textarea>
+    <label>Image path</label>
+    <input type="text" name="img" placeholder="category name">
+    <input type="button" id="delet-btn" value="Delete">
+    <input type="button" id="updat-btn" value="Update">
+    <input type="button" id="ad-btn" value="Add">
+</form>
+
+<div>
+    <p>Print all values</p>
+    <input type="button" id="print-all" value="Print all values">
+    <input type="button" id="remove-all" value="Remove all values">
+    <textarea rows="20" placeholder="categories list" name="output-list"></textarea>
+</div>
+
+
+<form>
+  <p>Image upload</p>
+  <form>
+      <input type="file" id="file-btn">
+      <input type="button" id="ref-btn" value="Reference">
+  </form>
+</form>
+
+<!-- inject:js -->
+<script src="bundle.js"></script>
+<!-- endinject -->
+</body>
+</html>

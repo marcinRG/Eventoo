@@ -3,7 +3,7 @@ var assetsFolder = devFolder + 'assets/';
 var tsFolder = devFolder + 'app/';
 var sassFolder = devFolder + 'scss/';
 var cssFolder = assetsFolder + 'css/';
-
+var remoteTests = './test/remote-tests/';
 var appFolder = devFolder + 'app/';
 var serverFolder = './server/';
 var buildPath = './build/';
@@ -21,6 +21,11 @@ var paths = {
     cssFile: cssFolder,
 };
 
+var remoteTests = {
+    tsFile: remoteTests + 'remote.test.ts',
+    compiledJS: remoteTests + 'bundle.js',
+}
+
 var build = {
     appPath: buildPath + 'app',
     path: buildPath,
@@ -36,6 +41,7 @@ var server = {
 module.exports = {
     app: paths,
     server: server,
-    build: build
+    build: build,
+    remote: remoteTests
 };
 
