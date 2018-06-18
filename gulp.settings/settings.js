@@ -4,6 +4,7 @@ var tsFolder = devFolder + 'app/';
 var sassFolder = devFolder + 'scss/';
 var cssFolder = assetsFolder + 'css/';
 var remoteTests = './test/remote-tests/';
+var testMapsFolder = './test/maps-test/';
 var appFolder = devFolder + 'app/';
 var serverFolder = './server/';
 var buildPath = './build/';
@@ -23,7 +24,9 @@ var paths = {
 
 var remoteTests = {
     tsFile: remoteTests + 'remote.test.ts',
+    tsFileMaps: testMapsFolder + 'maps.tests.ts',
     compiledJS: remoteTests + 'bundle.js',
+    compiledMapsJS: testMapsFolder + 'bundle.js',
 }
 
 var build = {

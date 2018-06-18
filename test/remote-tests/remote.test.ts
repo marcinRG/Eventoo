@@ -1,6 +1,6 @@
-import {databaseStorageService} from '../../src/app/services/database.storage.service';
+import {databaseStorageService} from '../../src/app/utilities/database.storage.utils';
 import {ICategory} from '../../src/app/model/ICategory';
-import {fileStorageService} from '../../src/app/services/files.storage.service';
+import {fileStorageService} from '../../src/app/utilities/files.storage.utils';
 
 const idInput = <HTMLInputElement> document.querySelector('input[name="id"]');
 const nameInput = <HTMLInputElement> document.querySelector('input[name="name"]');

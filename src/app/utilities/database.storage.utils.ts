@@ -20,15 +20,15 @@ class StorageService {
     }
 
     public updateCategory(category: ICategory): Promise<any> {
-        return updateElem(category,this.categoriesRef);
+        return updateElem(category, this.categoriesRef);
     }
 
     public addCategory(category: ICategory): Promise<any> {
-        return addElem(category,this.categoriesRef);
+        return addElem(category, this.categoriesRef);
     }
 
     public removeCategory(category: ICategory): Promise<any> {
-        return removeElem(category,this.categoriesRef);
+        return removeElem(category, this.categoriesRef);
     }
 
     public getAllEvents(): Promise<any> {
@@ -40,21 +40,21 @@ class StorageService {
     }
 
     public updateEvent(category: IEvent): Promise<any> {
-        return updateElem(category,this.eventsRef);
+        return updateElem(category, this.eventsRef);
     }
 
     public addEvent(category: IEvent): Promise<any> {
-        return addElem(category,this.eventsRef);
+        return addElem(category, this.eventsRef);
     }
 
     public removeEvent(category: IEvent): Promise<any> {
-        return removeElem(category,this.eventsRef);
+        return removeElem(category, this.eventsRef);
     }
 }
 
 export const databaseStorageService: StorageService = new StorageService();
 
-function raw2array(obj: Object): any[] {
+function raw2array(obj: any): any[] {
     return Object.keys(obj).map((key) => {
         return obj[key];
     });

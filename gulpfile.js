@@ -80,6 +80,16 @@ gulp.task('compile-remote-tests', [], function () {
         .pipe(gulp.dest('./'));
 });
 
+gulp.task('compile-maps-tests', [], function () {
+    return browserify({
+        entries: [settings.remote.tsFileMaps],
+        debug: true
+    }).plugin(tsify)
+        .bundle()
+        .pipe(source(settings.remote.compiledMapsJS))
+        .pipe(gulp.dest('./'));
+});
+
 
 gulp.task('ts-compile', ['code-check', 'copy-other-resources', 'copy-app-assets'], function () {
     return gulp.src(settings.app.app)
