@@ -11,6 +11,6 @@ export class AppSettings {
     };
     public static fireBaseApp = initializeApp(AppSettings.fireBaseConfig);
     public static maps = {
-        apiKey: 'AIzaSyBwQFo8aufjdMTAMGn345J9niDM17lFpfw',
+        apiKey: 'AIzaSyCIXAaI_w0tC4ZcG2fG2hBDoI9CGZNt_Ds',
     };
 }
