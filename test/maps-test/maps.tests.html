@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <title>Google maps tests</title>
     <style>
+        .map-div {
+            width: 400px;
+            height: 400px;
+            background-color: beige;
+            border: 1px solid black;
+        }
+
         div {
             width: 600px;
         }
@@ -20,6 +27,9 @@
 <body>
 
 <div>
+    <p>Location from geolocation</p>
+    <input type="button" name="geoloc-btn" value="locaction from geolocation">
+    <div class="map-div"></div>
     <p>Location to console</p>
     <input type="text" name="location-string">
     <input type="buttton" name="loc-btn" value="Location to console">
