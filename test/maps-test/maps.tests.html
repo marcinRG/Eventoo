@@ -4,35 +4,44 @@
     <meta charset="UTF-8">
     <title>Google maps tests</title>
     <style>
+        .map-test {
+            width: 900px;
+            margin: 0 auto;
+        }
+
         .map-div {
-            width: 400px;
-            height: 400px;
+            width: 600px;
+            height: 600px;
             background-color: beige;
             border: 1px solid black;
         }
 
-        div {
-            width: 600px;
+        input[name="geoloc-btn"], input[name="loc-btn"], input[name="suggestions-btn"] {
+            padding: .5em;
+            border: 1px solid black;
+            cursor: pointer;
         }
 
-        input {
+        input[name="location-string"], input[name="location-suggestions"] {
             padding: 0.5em;
-        }
-
-        input[type="text"] {
-            width: 100%;
+            width: 80%;
         }
     </style>
 </head>
 <body>
 
-<div>
+<div class="map-test">
     <p>Location from geolocation</p>
     <input type="button" name="geoloc-btn" value="locaction from geolocation">
-    <div class="map-div"></div>
-    <p>Location to console</p>
+    <p>Location on map</p>
     <input type="text" name="location-string">
-    <input type="buttton" name="loc-btn" value="Location to console">
+    <input type="buttton" name="loc-btn" value="Location to map">
+    <p>Suggestions to console</p>
+    <input type="text" name="location-suggestions">
+    <input type="buttton" name="suggestions-btn" value="suggestions to console">
+
+    <div id="map-test" class="map-div"></div>
+
 </div>
 <!-- inject:js -->
 <script src="bundle.js"></script>
