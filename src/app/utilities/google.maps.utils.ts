@@ -12,15 +12,12 @@ class GoogleMapsUtilsService {
     private marker;
     private autocompleteService;
 
-    //private sessionToken;
-
     constructor() {
         GoogleMapsLoader.KEY = AppSettings.maps.apiKey;
         GoogleMapsLoader.LIBRARIES = ['places'];
         GoogleMapsLoader.load((maps) => {
             this.mapsApi = maps;
             this.geocoder = new this.mapsApi.maps.Geocoder();
-            //this.sessionToken = new this.mapsApi.maps.places.AutocompleteSessionToken();
             this.autocompleteService = new this.mapsApi.maps.places.AutocompleteService();
             console.log(this.mapsApi);
         });
@@ -30,7 +27,6 @@ class GoogleMapsUtilsService {
         return new Promise((resolve, reject) => {
             this.autocompleteService.getPlacePredictions({
                     input: inputStr,
-                    //sessionToken: this.sessionToken,
                 },
                 (predictions, status) => {
                     if (status !== google.maps.places.PlacesServiceStatus.OK) {
