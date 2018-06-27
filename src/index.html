@@ -7,22 +7,41 @@
     <base href="/">
     <!-- 1. Load libraries
      Polyfill(s) for older browsers-->
-    <script src="lib/core-js/client/shim.min.js"></script>
+<!--    <script src="lib/core-js/client/shim.min.js"></script>
 
     <script src="lib/zone.js/dist/zone.js"></script>
     <script src="lib/reflect-metadata/Reflect.js"></script>
     <script src="lib/systemjs/dist/system.src.js"></script>
 
-    <!-- 2. Configure SystemJS -->
+    &lt;!&ndash; 2. Configure SystemJS &ndash;&gt;
     <script src="systemjs.config.js"></script>
     <script>
         System.import('app')
             .then(null, console.error.bind(console));
-    </script>
+    </script>-->
 
 </head>
 <!-- 3. Display the application -->
 <body>
-   <eventoo-app></eventoo-app>
+<nav class="navbar">
+    <div class="nav">
+        <div class="menu-headers">
+            <span class="logo">Even<span>too</span></span>
+            <span class="menu-btn"></span>
+        </div>
+
+        <ul class="menu-items">
+            <li class="item"><a href="#welcome">Nearest events</a></li>
+            <li class="item"><a href="#about">Find event</a></li>
+            <li class="item"><a href="#recent">Categories</a></li>
+            <li class="item"><a href="#contact">Info</a></li>
+        </ul>
+    </div>
+</nav>
+<section class="title-section">
+    <!--<h1>{{titleBig}}<span>{{titleSmall}}</span></h1>-->
+    <!--<p>{{subtitle}}</p>-->
+</section>
+<!--<eventoo-app></eventoo-app>-->
 </body>
 </html>

@@ -3,15 +3,19 @@
 @import './utils/fonts';
 
 @include custom-font-mixin-simplified('Alfa Slab One', 'alfaslabone-regular', $path-alfa-slab-one-fonts);
-@include custom-font-mixin-simplified('Font Awesome', 'fa-regular-400', $path-font-awesome-fonts);
 @include custom-font-mixin-simplified('Lobster', 'lobster-regular', $path-lobster-fonts);
+
+@include custom-font-mixin-simplified('Font Awesome Brands', 'fa-brands-400', $path-font-awesome-fonts);
+
+@include custom-font-mixin('Font Awesome', 'fa-regular-400', 400, normal, $path-font-awesome-fonts);
+@include custom-font-mixin('Font Awesome', 'fa-solid-900', 900, normal, $path-font-awesome-fonts);
 
 @include custom-font-mixin('Lato', 'lato-regular', 400, normal, $path-lato-fonts);
 @include custom-font-mixin('Lato', 'lato-bold', 700, normal, $path-lato-fonts);
 @include custom-font-mixin('Lato', 'lato-light', 300, normal, $path-lato-fonts);
 
 @mixin font-awesome {
-  font-family: 'Font Awesome', sans;
+  font-family: 'Font Awesome', 'Font Awesome Brands';
 }
 
 @mixin alfa-slab-font {

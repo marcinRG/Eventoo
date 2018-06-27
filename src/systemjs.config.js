@@ -21,7 +21,7 @@
             'rxjs': 'npm:rxjs',
             'firebase': 'npm:firebase',
             'google-maps': 'npm:google-maps',
-            'velocity-animate': 'npm:velocity-animate'
+            'velocity-animate': 'npm:velocity-animate/velocity.js'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {

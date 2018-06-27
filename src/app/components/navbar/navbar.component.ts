@@ -8,14 +8,14 @@ import {AnimationsUtils} from '../../utilities/animations.utils';
 })
 
 export class NavBarComponent {
-    private navbarElement;
-    private menuElement;
-    private navbarButton;
-    private sizeTriggerUp;
-    private sizeTriggerDown;
+    private navbarElement = document.querySelector('.nav');
+    private menuElement = document.querySelector('.menu-items');
+    private navbarButton = document.querySelector('.menu-btn');
+    private sizeTriggerUp = 100;
+    private sizeTriggerDown = 100;
     private slideTime = 1000;
     private previousWidth = window.outerWidth;
-    private pageSizeTrigger;
+    private pageSizeTrigger = 768;
     private classToChange;
     private previousPosition = 0;
 
@@ -27,39 +27,39 @@ export class NavBarComponent {
     }
 
     private changeNavbarClass(breakVal) {
-        const scrollTop = window.pageYOffset;
-        if (!((scrollTop < breakVal && this.previousPosition < breakVal) ||
-            ((scrollTop > breakVal && this.previousPosition > breakVal)))) {
-            if (scrollTop > breakVal) {
-                this.navbarElement.classList.add(this.classToChange);
-            } else {
-                this.navbarElement.classList.remove(this.classToChange);
-            }
-        }
-        this.previousPosition = scrollTop;
+        // const scrollTop = window.pageYOffset;
+        // if (!((scrollTop < breakVal && this.previousPosition < breakVal) ||
+        //     ((scrollTop > breakVal && this.previousPosition > breakVal)))) {
+        //     if (scrollTop > breakVal) {
+        //         this.navbarElement.classList.add(this.classToChange);
+        //     } else {
+        //         this.navbarElement.classList.remove(this.classToChange);
+        //     }
+        // }
+        // this.previousPosition = scrollTop;
     }
 
     private scrollEventHandler() {
-        window.addEventListener('scroll', () => {
-            this.setNavbarClass();
-        });
+        // window.addEventListener('scroll', () => {
+        //     this.setNavbarClass();
+        // });
     }
 
     private setNavbarClass() {
-        const scrollBreak =
-            (this.sizeTriggerDown > window.outerWidth) ? this.sizeTriggerDown : this.sizeTriggerUp;
-        this.changeNavbarClass(scrollBreak);
+        // const scrollBreak =
+        //     (this.sizeTriggerDown > window.outerWidth) ? this.sizeTriggerDown : this.sizeTriggerUp;
+        // this.changeNavbarClass(scrollBreak);
     }
 
     private toggleMenuOnButtonPressHandler() {
-        this.navbarButton.addEventListener('click', (event) => {
-            event.stopPropagation();
-            this.toggleMenu();
-        });
+        // this.navbarButton.addEventListener('click', (event) => {
+        //     event.stopPropagation();
+        //     this.toggleMenu();
+        // });
     }
 
     private toggleMenu() {
-        this.animationUtils.slideToggle(this.menuElement, this.slideTime, 'easeOut');
+        //this.animationUtils.slideToggle(this.menuElement, this.slideTime, 'easeOut');
     }
 
     private isSmallSize(size) {
@@ -68,12 +68,12 @@ export class NavBarComponent {
 
     private getSizeAndResetStyles() {
         const currentSize = window.outerWidth;
-        if (this.isSmallSize(this.previousWidth) && !(this.isSmallSize(currentSize))) {
-            this.menuElement.removeAttribute('style');
-        }
-        if (!this.isSmallSize(this.previousWidth) && (this.isSmallSize(currentSize))) {
-            this.menuElement.removeAttribute('style');
-        }
+        // if (this.isSmallSize(this.previousWidth) && !(this.isSmallSize(currentSize))) {
+        //     this.menuElement.removeAttribute('style');
+        // }
+        // if (!this.isSmallSize(this.previousWidth) && (this.isSmallSize(currentSize))) {
+        //     this.menuElement.removeAttribute('style');
+        // }
         return currentSize;
     }
 

@@ -67,7 +67,7 @@ gulp.task('help', $.taskListing);
 gulp.task('default', ['help']);
 
 gulp.task('sass-watcher', function () {
-    gulp.watch(settings.app.scssStyles, ['sass-compile', 'inject-css']);
+    gulp.watch(settings.app.scssStyles, ['sass-compile']);
 });
 
 gulp.task('compile-remote-tests', [], function () {
