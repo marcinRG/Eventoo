@@ -6,6 +6,11 @@ export class AnimationsUtils {
     public isShownString = 'display: block';
 
     public doSlideAnimation(elem, animation, slideTime, easing) {
+        console.log('do slide animation');
+        console.log(elem);
+        console.log(animation);
+        console.log(slideTime);
+        console.log(easing);
         Velocity(elem, animation, {
             duration: slideTime,
             easing,

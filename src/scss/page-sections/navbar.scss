@@ -6,7 +6,6 @@
   width: 100%;
   position: fixed;
   z-index: 35;
-  background-color: rgba(0, 0, 0, .45);
   transition-duration: .5s;
 
   @media screen {
@@ -20,6 +19,8 @@
     margin: 0 auto;
     padding: 1em 2em;
     overflow: hidden;
+    background-color: rgba(128, 128, 128, .7);
+    transition-duration: .5s;
 
     @media screen {
       @media (min-width: $media-br-1) {
@@ -80,13 +81,14 @@
       list-style-type: none;
       float: right;
       overflow: hidden;
-      //display: none;
+      display: none;
       width: 100%;
 
       @media screen {
         @media (min-width: $media-br-1) {
           width: auto;
           margin-right: 4em;
+          display: block;
         }
       }
 

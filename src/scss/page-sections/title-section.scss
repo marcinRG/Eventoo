@@ -14,12 +14,21 @@
   text-align: center;
 
   h1 {
+
     @include alfa-slab-font;
-    font-size: 4em;
+    font-size: 3em;
     color: white;
-    padding-top: 2em;
+    padding-top: 3em;
     letter-spacing: 2px;
     text-shadow: 0 0 5px rgba(0, 0, 0, .85);
+
+    @media screen {
+      @media (min-width: $media-br-1) {
+        padding-top: 2em;
+        font-size: 4em;
+      }
+    }
+
 
     span {
       @include alfa-slab-font;
@@ -29,10 +38,19 @@
 
   p {
     color: $fill-light-blue;
-    font-weight: 300;
-    font-size: 1.5em;
+    font-weight: 400;
+    font-size: 1em;
     letter-spacing: 2px;
-    text-shadow: 0 0 3px rgba(0, 0, 0, .7);
+    text-shadow: 0 0 3px rgba(0, 0, 0, .9);
+
+    @media screen {
+      @media (min-width: $media-br-1) {
+        font-size: 1.5em;
+        font-weight: 300;
+        text-shadow: 0 0 3px rgba(0, 0, 0, .7);
+      }
+    }
+
   }
 
 }
