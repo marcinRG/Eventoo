@@ -120,7 +120,8 @@ body {
   width: 100%;
   position: fixed;
   z-index: 35;
-  background-color: rgba(0, 0, 0, 0.45); }
+  background-color: rgba(0, 0, 0, 0.45);
+  transition-duration: .5s; }
 
 @media screen and (min-width: 768px) {
   .navbar {
@@ -130,25 +131,30 @@ body {
     margin: 0 auto;
     padding: 1em 2em;
     overflow: hidden; }
+
+@media screen and (min-width: 768px) {
+  .navbar .nav {
+    padding: 1em 2em 4em;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)); } }
     .navbar .nav::after {
       clear: both; }
-    .navbar .nav .menu-headers {
-      width: 100%;
-      overflow: hidden; }
-      .navbar .nav .menu-headers::after {
-        clear: both; }
-      .navbar .nav .menu-headers .menu-btn {
+    .navbar .nav .menu-btn {
+      font-family: 'Font Awesome', 'Font Awesome Brands';
+      padding: .5em;
+      display: block;
+      float: right;
+      cursor: pointer; }
+      .navbar .nav .menu-btn::after {
         font-family: 'Font Awesome', 'Font Awesome Brands';
-        padding: .5em;
-        display: block;
-        float: right; }
-        .navbar .nav .menu-headers .menu-btn::after {
-          font-family: 'Font Awesome', 'Font Awesome Brands';
-          content: "\f0c9";
-          font-weight: 900;
-          color: #f5e99d;
-          padding: 0 .25em;
-          font-size: 1.5em; }
+        content: "\f0c9";
+        font-weight: 900;
+        color: #f5e99d;
+        padding: 0 .25em;
+        font-size: 1.5em; }
+
+@media screen and (min-width: 768px) {
+  .navbar .nav .menu-btn {
+    display: none; } }
     .navbar .nav .logo {
       font-family: 'Alfa Slab One', cursive;
       color: #01a2a6;
@@ -166,12 +172,23 @@ body {
         padding: 0 .25em; }
     .navbar .nav .menu-items {
       list-style-type: none;
-      margin-right: 4em;
+      float: right;
+      overflow: hidden;
       width: 100%; }
+
+@media screen and (min-width: 768px) {
+  .navbar .nav .menu-items {
+    width: auto;
+    margin-right: 4em; } }
       .navbar .nav .menu-items .item {
         display: list-item;
-        width: 100%;
-        margin: 0 .1em; }
+        width: 100%; }
+
+@media screen and (min-width: 768px) {
+  .navbar .nav .menu-items .item {
+    width: auto;
+    display: inline-block;
+    margin: 0 .1em; } }
         .navbar .nav .menu-items .item a {
           font-family: 'Lato', sans-serif;
           text-align: center;
@@ -183,8 +200,18 @@ body {
           display: block;
           border-bottom: transparent solid 3px;
           text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); }
+
+@media screen and (min-width: 768px) {
+  .navbar .nav .menu-items .item a {
+    border: transparent solid 3px;
+    border-radius: 20px;
+    padding: .8em 1.6em;
+    font-weight: 700;
+    font-size: .8em; }
+    .navbar .nav .menu-items .item a:hover {
+      border: white solid 3px; } }
           .navbar .nav .menu-items .item a:hover {
-            border-bottom: transparent solid 3px; }
+            border-bottom: white solid 3px; }
 
 @font-face {
   font-family: "Alfa Slab One";
