@@ -72,24 +72,33 @@ gulp.task('sass-watcher', function () {
 
 gulp.task('compile-remote-tests', [], function () {
     return browserify({
-        entries: [settings.remote.tsFile],
+        entries: [settings.tests.tsFile],
         debug: true
     }).plugin(tsify)
         .bundle()
-        .pipe(source(settings.remote.compiledJS))
+        .pipe(source(settings.tests.compiledJS))
         .pipe(gulp.dest('./'));
 });
 
 gulp.task('compile-maps-tests', [], function () {
     return browserify({
-        entries: [settings.remote.tsFileMaps],
+        entries: [settings.tests.tsFileMaps],
         debug: true
     }).plugin(tsify)
         .bundle()
-        .pipe(source(settings.remote.compiledMapsJS))
+        .pipe(source(settings.tests.compiledMapsJS))
         .pipe(gulp.dest('./'));
 });
 
+gulp.task('compile-misc-tests', [], function () {
+    return browserify({
+        entries: [settings.tests.tsFileMisc],
+        debug: true
+    }).plugin(tsify)
+        .bundle()
+        .pipe(source(settings.tests.compiledMiscJS))
+        .pipe(gulp.dest('./'));
+});
 
 gulp.task('ts-compile', ['code-check', 'copy-other-resources', 'copy-app-assets'], function () {
     return gulp.src(settings.app.app)

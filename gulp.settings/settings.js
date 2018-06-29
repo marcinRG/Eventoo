@@ -5,6 +5,7 @@ var sassFolder = devFolder + 'scss/';
 var cssFolder = assetsFolder + 'css/';
 var remoteTests = './test/remote-tests/';
 var testMapsFolder = './test/maps-test/';
+var testMiscellaneousFolder = './test/playground/';
 var appFolder = devFolder + 'app/';
 var serverFolder = './server/';
 var buildPath = './build/';
@@ -14,20 +15,22 @@ var paths = {
     index: devFolder + 'index.html',
     allTSs: [tsFolder + '**/*.ts'],
     app: [appFolder + '**/*.ts'],
-    otherAppResources: [devFolder + 'index.html', devFolder + 'systemjs.config.js', '!' +  assetsFolder + '**/*.*', devFolder + '**/*.html', devFolder + '**/*.css'],
+    otherAppResources: [devFolder + 'index.html', devFolder + 'systemjs.config.js', '!' + assetsFolder + '**/*.*', devFolder + '**/*.html', devFolder + '**/*.css'],
     assets: assetsFolder + '**/*.*',
     tsFile: tsFolder + 'main.ts',
-    scssStyles: [sassFolder + '**/*.scss','!' + sassFolder + 'libs/' + '**/*.scss'],
+    scssStyles: [sassFolder + '**/*.scss', '!' + sassFolder + 'libs/' + '**/*.scss'],
     scssFile: sassFolder + 'style.scss',
-    cssFile: cssFolder,
+    cssFile: cssFolder
 };
 
-var remoteTests = {
+var tests = {
     tsFile: remoteTests + 'remote.test.ts',
     tsFileMaps: testMapsFolder + 'maps.tests.ts',
+    tsFileMisc: testMiscellaneousFolder + 'misc.tests.ts',
     compiledJS: remoteTests + 'bundle.js',
     compiledMapsJS: testMapsFolder + 'bundle.js',
-}
+    compiledMiscJS: testMiscellaneousFolder + 'bundle.js'
+};
 
 var build = {
     appPath: buildPath + 'app',
@@ -45,6 +48,6 @@ module.exports = {
     app: paths,
     server: server,
     build: build,
-    remote: remoteTests
+    tests: tests
 };
 

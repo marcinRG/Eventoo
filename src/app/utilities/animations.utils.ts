@@ -24,6 +24,10 @@ export class AnimationsUtils {
         });
     }
 
+    public findElementHeight(elem) {
+        console.log('height');
+    }
+
     public isShown(elem) {
         if ((elem.hasAttribute('style')) &&
             (elem.getAttribute('style').indexOf(this.isShownString) >= 0)) {
