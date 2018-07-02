@@ -12,7 +12,7 @@ var tsProject = ts.createProject('tsconfig.json');
 var settings = require('./gulp.settings/settings');
 
 gulp.task('clean-styles', function (done) {
-    var files = settings.app.cssStyles + '*.css';
+    var files = settings.app.cssFile + '*.css';
     clean(files, done);
 });
 

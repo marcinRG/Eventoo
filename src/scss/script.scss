@@ -1,6 +1,8 @@
+@import 'variables';
+
 .nav {
   &.changed {
     padding: 1em 2em;
-    background-color: rgba(128, 128, 128, .7);
+    background-color: $fill-greener-transp;
   }
 }

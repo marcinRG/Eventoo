@@ -15,18 +15,19 @@
 
         .elem-two {
             display: block;
-            padding: 3em;
             background-color: whitesmoke;
             border: 1px solid darkgray;
         }
         .elem-three {
-            box-sizing: border-box;
-            overflow: hidden;
             display: none;
+            box-sizing: border-box;
             padding: 0;
-            height: 900px;
             background-color: whitesmoke;
             border: 1px solid darkgray;
+        }
+
+        .elem-three > .par {
+            padding: 2em;
         }
 
         .txt {
@@ -65,11 +66,11 @@
 <h2>Test 3</h2>
 <button class="button-three">Show/Hide</button>
 <div class="elem-three">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda consequuntur facilis,
+    <p class="par">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda consequuntur facilis,
         iste maxime quod repudiandae sit soluta voluptatem. Cumque ea incidunt laborum natus recusandae
         reiciendis tenetur! Aliquid corporis sapiente voluptate.
     </p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    <p class="par">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         A accusantium maiores maxime necessitatibus numquam odit provident quidem
         quis repellat soluta! Ea enim eos explicabo fugiat iure maxime modi repudiandae. Eaque?</p>
 </div>

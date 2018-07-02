@@ -19,13 +19,13 @@
     margin: 0 auto;
     padding: 1em 2em;
     overflow: hidden;
-    background-color: rgba(128, 128, 128, .7);
+    background-color: $fill-greener-transp;
     transition-duration: .5s;
 
     @media screen {
       @media (min-width: $media-br-1) {
         padding: 1em 2em 4em;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0));
+        background-color: transparent;
       }
     }
 
