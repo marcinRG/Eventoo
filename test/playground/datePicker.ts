@@ -1,9 +1,10 @@
 import {DateExtended} from './DateExtended';
 import {animationsUtils} from './animations.utils';
+import * as utils from './utils';
 
 export class DatePicker {
     private htmlElement = document.querySelector('.input-date-picker');
-    private txtInput = <HTMLInputElement>this.htmlElement.querySelector('.input-txt');
+    private txtInput = <HTMLInputElement> this.htmlElement.querySelector('.input-txt');
     private btnInput = this.htmlElement.querySelector('.input-btn');
     private nextBtn = this.htmlElement.querySelector('.right-btn');
     private prevBtn = this.htmlElement.querySelector('.left-btn');
@@ -15,13 +16,20 @@ export class DatePicker {
     private todayClass = 'current-day';
     private selectedDayClass = 'selected-day';
     private date: DateExtended = new DateExtended();
+    private debouncedParseAndAddToOutput: any;
 
-    //TODO - 1. selected day when changing to different month
-    //       2. redrawing whole day table when toggling down date-picker element
     constructor() {
         this.fillDayLabels();
         this.fillMonthYearLabel();
         this.fillDays();
+
+        this.debouncedParseAndAddToOutput = utils.debounce<string>((value) => {
+            if (this.date.setDateFromString(value)) {
+                this.fillMonthYearLabel();
+                this.fillDays();
+                console.log(this.date.dateToStr());
+            }
+        }, 1200);
 
         this.btnInput.addEventListener('click', () => {
             animationsUtils.slideToggle(this.datePicker, 150, 'ease-in');
@@ -35,18 +43,24 @@ export class DatePicker {
             this.previousMonth();
         });
 
+        this.txtInput.addEventListener('input', () => {
+            this.debouncedParseAndAddToOutput(this.txtInput.value);
+        });
+
     }
 
     private nextMonth() {
         this.date.addMonth();
         this.fillMonthYearLabel();
         this.fillDays();
+        this.txtInput.value = this.date.dateToStr();
     }
 
     private previousMonth() {
         this.date.subtractMonth();
         this.fillMonthYearLabel();
         this.fillDays();
+        this.txtInput.value = this.date.dateToStr();
     }
 
     private fillMonthYearLabel() {
@@ -77,13 +91,18 @@ export class DatePicker {
     private fillDays() {
         const first = this.date.firstDayWeekOfMonth();
         const last = this.date.lastDayOfMonth() + first;
+        const today = new Date();
         let i = 1;
         this.createDaysTable();
+        console.log(this.date.dateToStr());
         this.daysTable.map((elem, index) => {
             if ((index >= first) && (index < last)) {
                 elem.textContent = i + '';
                 this.addDayEventHandler(i, elem);
                 if (index === (this.date.getDay() + first - 1)) {
+                    elem.classList.add(this.selectedDayClass);
+                }
+                if (index === (today.getDate() + first - 1)) {
                     if (this.date.isThisMonthYear()) {
                         elem.classList.add(this.todayClass);
                     }
@@ -99,12 +118,12 @@ export class DatePicker {
 
     private addDayEventHandler(i, elem) {
         elem.addEventListener('click', () => {
-            this.daysTable[this.date.getDay() + this.date.firstDayWeekOfMonth() - 1].classList.remove(this.selectedDayClass);
+            this.daysTable[this.date.getDay() +
+            this.date.firstDayWeekOfMonth() - 1].classList.remove(this.selectedDayClass);
             this.date.setDay(i);
             this.txtInput.value = this.date.dateToStr();
-            this.daysTable[this.date.getDay() + this.date.firstDayWeekOfMonth() - 1].classList.add(this.selectedDayClass);
+            this.daysTable[this.date.getDay() +
+            this.date.firstDayWeekOfMonth() - 1].classList.add(this.selectedDayClass);
         });
     }
-
 }
-
