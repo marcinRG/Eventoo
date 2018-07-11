@@ -1,11 +1,23 @@
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Eventoo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         *, html {
             font-family: Arial;
+            box-sizing: border-box;
         }
+
+        br {
+            background-color: transparent;
+            height: 40px;
+        }
+
+        .input-date-picker {
+            position: relative;
+        }
+
         .elem-one {
             background-color: whitesmoke;
             width: 600px;
@@ -18,6 +30,7 @@
             background-color: whitesmoke;
             border: 1px solid darkgray;
         }
+
         .elem-three {
             display: none;
             box-sizing: border-box;
@@ -30,18 +43,253 @@
             padding: 2em;
         }
 
-        .txt {
-            padding: 4em;
-            width: 90%;
-            margin: auto;
+        .elements {
+            width: 600px;
         }
 
+        .inputs {
+            background-color: white;
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid black;
+            height: 2em;
+            border-radius: 5px;
+        }
+
+        .inputs::after {
+            clear: both;
+        }
+
+        .input-txt {
+            padding: 0.3em;
+            outline: 0;
+            display: block;
+            width: 70%;
+            margin: 0;
+            height: 100%;
+            border: none;
+            float: left;
+            border: none;
+
+        }
+
+        .input-btn {
+            text-align: center;
+            padding: 0.3em;
+            float: right;
+            display: block;
+            width: 29%;
+            margin: 0;
+            height: 100%;
+
+            outline: 0;
+        }
+
+        .list-elements {
+            display: none;
+            width: 100%;
+            position: absolute;
+            z-index: 11;
+            top: 100%;
+            left: 0;
+            background-color: honeydew;
+            list-style-type: none;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .li-elem {
+            padding: .7em 0.4em;
+            cursor: pointer;
+        }
+
+        .li-elem:hover {
+            background-color: wheat;
+        }
+
+        thead td {
+            font-weight: bold;
+        }
+
+        .date-picker {
+            position: absolute;
+            background-color: white;
+            width: 100%;
+            display: none;
+            z-index: 10;
+            top: 100%;
+            left: 0;
+        }
+
+        table.date-display {
+            width: 100%;
+            background-color: #d4eedb;
+        }
+
+        td {
+            text-align: center;
+            padding: 2px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        td:hover {
+            background: #dddddd;
+            font-weight: bold;
+        }
+
+        td.current-day {
+            background-color: #888888;
+        }
+
+        td.disabled {
+            pointer-events: none;
+        }
+
+        .left-btn {
+            float: left;
+            width: 15%;
+            height: 100%;
+
+        }
+
+        .selected-day {
+            border: 2px solid black;
+        }
+
+        .input-dropdown {
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            padding: 0;
+            margin: 0;
+        }
+
+        .right-btn {
+            float: right;
+            width: 15%;
+            height: 100%;
+        }
+
+        .month-display {
+            width: 70%;
+            text-align: center;
+            display: block;
+            margin: 0;
+            padding: 0.3em;
+            float: left;
+        }
     </style>
 </head>
 <body>
+
+<h2>Test 0</h2>
+
+<div class="elements">
+    <div class="input-dropdown">
+        <div class="inputs">
+            <input class="input-txt" type="text">
+            <input class="input-btn" type="button" value="V">
+        </div>
+        <ul class="list-elements">
+            <li class="li-elem">lorem ipsum 1</li>
+            <li class="li-elem">lorem ipsum 1</li>
+            <li class="li-elem">lorem ipsum 1</li>
+            <li class="li-elem">lorem ipsum 1</li>
+            <li class="li-elem">lorem ipsum 1</li>
+        </ul>
+    </div>
+    <br>
+    <div class="input-date-picker">
+        <div class="inputs">
+            <input class="input-txt" type="text">
+            <input class="input-btn" type="button" value="O">
+        </div>
+        <div class="date-picker">
+            <div class="inputs">
+                <input class="left-btn" type="button" value="<">
+                <span class="month-display"> Mies 2010</span>
+                <input class="right-btn" type="button" value=">">
+            </div>
+            <table class="date-display">
+                <thead>
+                <tr>
+                    <td>Rep</td>
+                    <td>Rep</td>
+                    <td>Rep</td>
+                    <td>Rep</td>
+                    <td>Rep</td>
+                    <td>Rep</td>
+                    <td>Rep</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>6</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <h2>Test 1</h2>
 <button class="button-one">Show/Hide</button>
-<div class="elem-one"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis perspiciatis praesentium quae quaerat,
+<div class="elem-one"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis perspiciatis praesentium
+    quae quaerat,
     rem sunt voluptas voluptate voluptatem! Cupiditate delectus eius quia sapiente similique. Aspernatur consequuntur
     excepturi fugit iure nemo?</p>
     <h3>List</h3>
@@ -74,10 +322,6 @@
         A accusantium maiores maxime necessitatibus numquam odit provident quidem
         quis repellat soluta! Ea enim eos explicabo fugiat iure maxime modi repudiandae. Eaque?</p>
 </div>
-
-<div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda beatae corporis cum debitis dicta dolores enim eos, facilis inventore ipsam necessitatibus nobis numquam possimus provident quo quos totam veritatis!</div>
-<div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quod sint. A alias aut culpa, dolor doloremque eaque fugit, hic ipsa ipsam magnam molestias mollitia nam, quae quod repudiandae rerum.</div>
-<div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dicta id ipsa, iste possimus praesentium quisquam quos reprehenderit? Consequuntur, cum doloribus eius illum nemo nisi omnis perspiciatis placeat quidem reprehenderit.</div>
 
 <!-- inject:js -->
 <script src="bundle.js"></script>

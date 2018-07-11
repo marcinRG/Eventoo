@@ -1,4 +1,7 @@
 import {animationsUtils} from './animations.utils';
+import {DatePicker} from './datePicker';
+import {ComboBox} from './comboBox';
+import {ComboxTypes} from './Combox.Types';
 //import 'velocity-animate';
 
 const buttonOne = document.querySelector('.button-one');
@@ -20,3 +23,6 @@ buttonTwo.addEventListener('click', () => {
 buttonThree.addEventListener('click', () => {
     animationsUtils.slideToggle(elementThree, 500, 'ease-out');
 });
+
+const datePicker = new DatePicker();
+const comboBox = new ComboBox(ComboxTypes.NO_EDIT);
