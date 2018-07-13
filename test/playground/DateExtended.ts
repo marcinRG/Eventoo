@@ -7,78 +7,81 @@ export class DateExtended {
 
     constructor() {
         this.date = new Date();
-        this.date.setHours(0);
-        this.date.setMinutes(0);
-        this.date.setSeconds(1);
-        this.date.setMilliseconds(0);
     }
 
     public daysInMonth(month, year) {
-        return new Date(year, month + 1, 0).getUTCDate();
+        return new Date(year, month + 1, 0).getDate();
     }
 
     public firstDayWeekOfMonth() {
         const dateTemp = new Date(this.date.getTime());
-        dateTemp.setUTCDate(1);
-        return dateTemp.getUTCDay();
+        dateTemp.setDate(1);
+        return dateTemp.getDay();
     }
 
     public lastDayOfMonth() {
-        return this.daysInMonth(this.date.getUTCMonth(), this.date.getUTCFullYear());
+        return this.daysInMonth(this.date.getMonth(), this.date.getFullYear());
     }
 
     public addMonth() {
         const dateTemp = new Date(this.date.getTime());
-        if (dateTemp.getUTCMonth() < 11) {
-            this.date.setUTCMonth(dateTemp.getUTCMonth() + 1);
+        if (dateTemp.getMonth() < 11) {
+            this.date.setMonth(dateTemp.getMonth() + 1);
         } else {
-            this.date.setUTCFullYear(dateTemp.getUTCFullYear() + 1);
-            this.date.setUTCMonth(0);
+            this.date.setFullYear(dateTemp.getFullYear() + 1);
+            this.date.setMonth(0);
         }
     }
 
     public subtractMonth() {
         const dateTemp = new Date(this.date.getTime());
-        if (dateTemp.getUTCMonth() > 0) {
-            this.date.setUTCMonth(dateTemp.getUTCMonth() - 1);
+        if (dateTemp.getMonth() > 0) {
+            this.date.setMonth(dateTemp.getMonth() - 1);
         } else {
-            this.date.setUTCFullYear(dateTemp.getUTCFullYear() - 1);
-            this.date.setUTCMonth(11);
+            this.date.setFullYear(dateTemp.getFullYear() - 1);
+            this.date.setMonth(11);
         }
+    }
+
+    public isToday(day: number) {
+        return (this.date.getDate() === day);
     }
 
     public isThisMonthYear() {
         const tempDate = new Date();
-        return (this.date.getUTCFullYear() === tempDate.getUTCFullYear()) &&
-            (this.date.getUTCMonth() === tempDate.getUTCMonth());
+        return (this.date.getFullYear() === tempDate.getFullYear()) &&
+            (this.date.getMonth() === tempDate.getMonth());
     }
 
     public getMonthYearString() {
-        return `${this.monthsLabels[this.date.getUTCMonth()]} ${this.date.getUTCFullYear()}`;
+        return `${this.monthsLabels[this.date.getMonth()]} ${this.date.getFullYear()}`;
     }
 
     public setDateFromString(dateAsString) {
-        let date = new Date();
-        try {
-            date = new Date(dateAsString);
-            this.date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0);
+        if (Date.parse(dateAsString)) {
+            this.date = new Date(dateAsString);
             return true;
-        } catch (e) {
-            console.log(e);
         }
         return false;
     }
 
     public dateToStr() {
-        return this.date.toISOString().replace(/^(\d{4}).(\d{2}).(\d{2}).*/, '$1' +
-            this.separator + '$2' + this.separator + '$3');
+        return '' + this.date.getFullYear() + this.separator + this.formatNumbers(this.date.getMonth() + 1) +
+            this.separator + this.formatNumbers(this.date.getDate());
     }
 
     public setDay(day: number) {
-        this.date.setUTCDate(day);
+        this.date.setDate(day);
     }
 
     public getDay() {
-        return this.date.getUTCDate();
+        return this.date.getDate();
     }
+
+    private formatNumbers(n: number) {
+        let str = n + '';
+        return str.length > 1 ? str : '0' + str;
+    }
+
+
 }

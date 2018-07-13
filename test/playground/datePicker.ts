@@ -27,7 +27,6 @@ export class DatePicker {
             if (this.date.setDateFromString(value)) {
                 this.fillMonthYearLabel();
                 this.fillDays();
-                console.log(this.date.dateToStr());
             }
         }, 1200);
 
@@ -91,29 +90,37 @@ export class DatePicker {
     private fillDays() {
         const first = this.date.firstDayWeekOfMonth();
         const last = this.date.lastDayOfMonth() + first;
-        const today = new Date();
         let i = 1;
         this.createDaysTable();
-        console.log(this.date.dateToStr());
         this.daysTable.map((elem, index) => {
             if ((index >= first) && (index < last)) {
-                elem.textContent = i + '';
-                this.addDayEventHandler(i, elem);
-                if (index === (this.date.getDay() + first - 1)) {
-                    elem.classList.add(this.selectedDayClass);
-                }
-                if (index === (today.getDate() + first - 1)) {
-                    if (this.date.isThisMonthYear()) {
-                        elem.classList.add(this.todayClass);
-                    }
-                }
+                this.fillElementWithValues(i, elem);
                 i = i + 1;
             } else {
-                elem.textContent = '\xa0';
-                elem.setAttribute('disabled', '');
-                elem.classList.add('disabled');
+                this.fillElementWithEmptyValues(elem);
             }
         });
+    }
+
+    private fillElementWithValues(i, elem) {
+        elem.textContent = i + '';
+        this.addDayEventHandler(i, elem);
+        this.setTodayAndSelectedClass(i, elem);
+    }
+
+    private fillElementWithEmptyValues(elem) {
+        elem.textContent = '\xa0';
+        elem.setAttribute('disabled', '');
+        elem.classList.add('disabled');
+    }
+
+    private setTodayAndSelectedClass(i, elem) {
+        if (this.date.isToday(i)) {
+            elem.classList.add(this.selectedDayClass);
+            if (this.date.isThisMonthYear()) {
+                elem.classList.add(this.todayClass);
+            }
+        }
     }
 
     private addDayEventHandler(i, elem) {

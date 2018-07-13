@@ -9,7 +9,9 @@ export class SelectableList<T> {
 
     constructor(elements, maxLength) {
         this.values = elements;
-
+        if (!!!maxLength) {
+            this.maxLength = this.values.length;
+        }
         console.log('constructor');
     }
 
@@ -19,6 +21,8 @@ export class SelectableList<T> {
     }
 
     public getElements(): T[] {
-        return this.outputValues;
+        return this.outputValues.filter((element, index) => {
+            return (index < this.maxLength);
+        });
     }
 }
