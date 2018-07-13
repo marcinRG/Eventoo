@@ -7,15 +7,15 @@ class AnimationsUtils {
 
     public slideToggle(elem, time, ease) {
         if (this.isNotDisplayed(elem)) {
-            this.slideDown(elem, time, ease);
+            this.slideDown(elem, time, ease, 'hidden');
         } else {
-            this.slideUp(elem, time, ease);
+            this.slideUp(elem, time, ease, 'hidden');
         }
     }
 
-    public slideDown(elem, time, ease) {
+    public slideDown(elem, time, ease, overflowStyle) {
         const height = this.getElementHeight(elem);
-        elem.style.overflow = 'hidden';
+        elem.style.overflow = overflowStyle;
         elem.style.height = 0 + 'px';
         elem.style.display = this.isDisplayedString;
         elem.removeAttribute(this.hiddenAttribute);
@@ -27,8 +27,8 @@ class AnimationsUtils {
         });
     }
 
-    public slideUp(elem, time, ease) {
-        elem.style.overflow = 'hidden';
+    public slideUp(elem, time, ease, overflowStyle) {
+        elem.style.overflow = overflowStyle;
         Velocity(elem, {
             height: '0px',
         }, {
@@ -37,7 +37,7 @@ class AnimationsUtils {
             complete: () => {
                 elem.style.display = this.isNotDisplayedString;
                 elem.setAttribute(this.hiddenAttribute, '');
-            }
+            },
         });
     }
 

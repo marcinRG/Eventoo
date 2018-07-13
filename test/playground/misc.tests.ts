@@ -24,5 +24,34 @@ buttonThree.addEventListener('click', () => {
     animationsUtils.slideToggle(elementThree, 500, 'ease-out');
 });
 
+const list = [
+    'element 1',
+    'element 2',
+    'element 3',
+    'element 4',
+    'element 5',
+    'element 6',
+    'element 7',
+    'element 8',
+    'element 9',
+    'element 10',
+    'element 11',
+];
+
+const list2 = [
+    'lorem 1',
+    'ipsum 2',
+    'dolor sit amet',
+    'consectetur adipisicing',
+    'element 5',
+    'element 6',
+    'element 7',
+    'element 8',
+    'element 9',
+    'element 10',
+    'element 11',
+];
+
 const datePicker = new DatePicker();
-const comboBox = new ComboBox(ComboxTypes.NO_EDIT);
+const comboBox = new ComboBox(ComboxTypes.NO_EDIT, list);
+const comboBox2 = new ComboBox(ComboxTypes.DYNAMIC, list);
