@@ -2,6 +2,7 @@ import {animationsUtils} from './animations.utils';
 import {DatePicker} from './datePicker';
 import {ComboBox} from './comboBox';
 import {ComboxTypes} from './Combox.Types';
+import {PlainTextArray} from './PlainTextArray';
 //import 'velocity-animate';
 
 const buttonOne = document.querySelector('.button-one');
@@ -53,5 +54,6 @@ const list2 = [
 ];
 
 const datePicker = new DatePicker();
-const comboBox = new ComboBox(ComboxTypes.NO_EDIT, list);
-const comboBox2 = new ComboBox(ComboxTypes.DYNAMIC, list);
+const txtArray = new PlainTextArray(list);
+const comboBox = new ComboBox('#combo-box-1', 'li-elem', ComboxTypes.NO_EDIT, txtArray);
+// const comboBox2 = new ComboBox(ComboxTypes.DYNAMIC, list);

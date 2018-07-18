@@ -1,46 +1,55 @@
 import {animationsUtils} from './animations.utils';
 import {ComboxTypes} from './Combox.Types';
+import {ISelectableList} from './ISelectableList';
 
 export class ComboBox {
-    private htmlElement = document.querySelector('.input-dropdown');
-    private txtInput = <HTMLInputElement> this.htmlElement.querySelector('.input-txt');
-    private btnInput = this.htmlElement.querySelector('.input-btn');
-    private listElements = this.htmlElement.querySelector('.list-elements');
-    private listElementClass = 'li-elem';
+    private readonly htmlElement;
+    private txtInput;
+    private btnInput;
+    private listElements;
+    private listElementClass;
     private listVisible = false;
-    private values;
+    private selectedElement: any;
 
-    constructor(private type: ComboxTypes, values: any[]) {
-        console.log('ready');
+    constructor(selectorQueryStr: string, listElementClassName: string,
+                private type: ComboxTypes, private selectableList: ISelectableList<any>) {
+        this.htmlElement = document.querySelector(selectorQueryStr);
+        this.listElementClass = listElementClassName;
+        if (this.htmlElement) {
+            this.txtInput = <HTMLInputElement> this.htmlElement.querySelector('.input-txt');
+            this.btnInput = this.htmlElement.querySelector('.input-btn');
+            this.listElements = this.htmlElement.querySelector('.list-elements');
+        }
 
         if (this.type === ComboxTypes.NO_EDIT) {
             this.txtInput.readOnly = true;
         } else {
             this.txtInput.readOnly = false;
         }
-        this.values = values;
-        this.createListElements(this.values);
+
+        this.createListElements(this.selectableList);
         this.btnInput.addEventListener('click', () => {
             this.toggleListElements();
         });
     }
 
-    private doSomething(i) {
-        console.log('doin somtinhg');
-        console.log(i);
-        this.txtInput.value = this.values[i];
-        animationsUtils.slideUp(this.listElements, 50, 'ease-in', 'hidden');
-        this.listVisible = false;
+    private changeToSelected(ID: string) {
+        const index = this.selectableList.getIndex(ID);
+        this.selectedElement = this.selectableList.values[index];
+        if (this.selectedElement) {
+            this.txtInput.value = this.selectableList.getTitle(index);
+            animationsUtils.slideUp(this.listElements, 50, 'ease-in', 'hidden');
+            this.listVisible = false;
+        }
     }
 
-    private createListElements(list: any[]) {
-        console.log(list);
+    private createListElements(list: ISelectableList<any>) {
         this.listElements.innerHTML = null;
-        for (let i = 0; i < list.length; i++) {
+        for (let i = 0; i < list.values.length; i++) {
             const liElem = document.createElement('li');
-            liElem.textContent = list[i];
-            liElem.setAttribute('data-list-nr', i + '');
-            this.addListElementHandler(i, liElem);
+            liElem.textContent = list.getTitle(i);
+            liElem.setAttribute('data-list-nr', list.getUniqueID(i));
+            this.addListElementHandler(list.getUniqueID(i), liElem);
             liElem.classList.add(this.listElementClass);
             this.listElements.appendChild(liElem);
         }
@@ -56,9 +65,9 @@ export class ComboBox {
         }
     }
 
-    private addListElementHandler(i, elem) {
-        elem.addEventListener('click', () => {
-            this.doSomething(i);
+    private addListElementHandler(ID, htmlElem) {
+        htmlElem.addEventListener('click', () => {
+            this.changeToSelected(ID);
         });
     }
 }
