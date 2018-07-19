@@ -1,9 +1,8 @@
 import {animationsUtils} from './animations.utils';
-import {DatePicker} from './datePicker';
-import {ComboBox} from './comboBox';
-import {ComboxTypes} from './Combox.Types';
+import {DatePicker} from './DatePicker';
+import {ComboBox} from './ComboBox';
 import {PlainTextArray} from './PlainTextArray';
-//import 'velocity-animate';
+import {DynamicComboBox} from './DynamicComboBox';
 
 const buttonOne = document.querySelector('.button-one');
 const buttonTwo = document.querySelector('.button-two');
@@ -24,6 +23,11 @@ buttonTwo.addEventListener('click', () => {
 buttonThree.addEventListener('click', () => {
     animationsUtils.slideToggle(elementThree, 500, 'ease-out');
 });
+
+const obj = {
+    x: '234',
+    z: 450,
+};
 
 const list = [
     'element 1',
@@ -55,5 +59,12 @@ const list2 = [
 
 const datePicker = new DatePicker();
 const txtArray = new PlainTextArray(list);
-const comboBox = new ComboBox('#combo-box-1', 'li-elem', ComboxTypes.NO_EDIT, txtArray);
-// const comboBox2 = new ComboBox(ComboxTypes.DYNAMIC, list);
+const txtArray2 = new PlainTextArray(list2);
+const comboBox = new ComboBox({
+    querySelectorString: '#combo-box-1',
+    listElementClass: 'li-elem',
+}, txtArray);
+const comboBox2 = new DynamicComboBox({
+    querySelectorString: '#combo-box-2',
+    listElementClass: 'li-elem',
+}, txtArray2);

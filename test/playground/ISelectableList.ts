@@ -1,11 +1,11 @@
 export interface ISelectableList<T> {
     values: T[];
 
-    getUniqueID(index: number): string;
+    getUniqueID(elem: T): string;
 
     getIndex(uniqueID: string): number;
 
-    getTitle(i: number): string;
+    getTitle(elem: T): string;
 
-    filteredValues(filterTxt: string, maxLength: number): T[];
+    filteredValues(filterTxt: string, maxLength?: number): T[];
 }

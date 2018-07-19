@@ -4,18 +4,16 @@ export class PlainTextArray implements ISelectableList<string> {
     constructor(public values: string[]) {
     }
 
-    public getUniqueID(i: number) {
-        if (i < this.values.length) {
-            return i + '';
+    public getUniqueID(elem: string) {
+        const index = this.values.indexOf(elem);
+        if (index >= 0) {
+            return index + '';
         }
         return null;
     }
 
-    public getTitle(i: number) {
-        if (i < this.values.length) {
-            return this.values[i];
-        }
-        return null;
+    public getTitle(elem: string) {
+        return elem;
     }
 
     public getIndex(uniqueStr: string) {
@@ -26,9 +24,10 @@ export class PlainTextArray implements ISelectableList<string> {
         return null;
     }
 
-    public filteredValues(filterTxt: string, maxLength: number) {
-        return this.values.filter((elem) => {
+    public filteredValues(filterTxt: string, maxLength?: number) {
+        const filteredResults = this.values.filter((elem) => {
             return elem.includes(filterTxt);
-        }).slice(0, maxLength);
+        });
+        return (maxLength && maxLength > 0) ? filteredResults.slice(0, maxLength) : filteredResults;
     }
 }
