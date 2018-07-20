@@ -1,7 +1,7 @@
 import {animationsUtils} from './animations.utils';
 import {ISelectableList} from './ISelectableList';
 import {IComboBoxProperties} from './IComboBox.Properties';
-import * as utils from './ComboBox.Utils';
+import * as cBoxUtils from './ComboBox.Utils';
 
 export class ComboBox {
     private htmlElement;
@@ -11,23 +11,30 @@ export class ComboBox {
     private listElementClass;
     private listVisible = false;
     private selectedElement: any;
+    private dropdownListHeight: number;
+    private maxSize: number;
 
     constructor(properties: IComboBoxProperties, private selectableList: ISelectableList<any>) {
-        this.createElements(properties);
-        this.txtInput.readOnly = true;
-        this.listElementClass = properties.listElementClass;
-        utils.createListElements(selectableList, this.listElements, this.listElementClass, this, this.changeToSelected);
+        this.initialize(properties);
+        cBoxUtils.createListElements(this.selectableList, this.selectableList.values, this.listElements,
+            this.listElementClass, this, this.changeToSelected);
+        this.dropdownListHeight = cBoxUtils.getDropdownListHeight(selectableList.values,
+            this.listElements, this.maxSize);
         this.btnInput.addEventListener('click', () => {
-            this.toggleListElements();
+            this.listVisible = cBoxUtils.toggleListElements(this.listElements,
+                this.listVisible, this.dropdownListHeight);
         });
     }
 
-    private createElements(properites: IComboBoxProperties) {
-        const elements = utils.createHTMLElements(properites);
+    private initialize(properties: IComboBoxProperties) {
+        const elements = cBoxUtils.createHTMLElements(properties);
         this.htmlElement = elements.htmlElement;
         this.txtInput = elements.txtInput;
         this.btnInput = elements.btnInput;
         this.listElements = elements.listElements;
+        this.txtInput.readOnly = true;
+        this.listElementClass = properties.listElementClass;
+        this.maxSize = properties.maxSize;
     }
 
     private changeToSelected(ID: string) {
@@ -43,15 +50,5 @@ export class ComboBox {
     private hideAfterSelected() {
         animationsUtils.slideUp(this.listElements, 50, 'ease-in', 'hidden');
         this.listVisible = false;
-    }
-
-    private toggleListElements() {
-        if (!this.listVisible) {
-            animationsUtils.slideDown(this.listElements, 150, 'ease-in', 'auto');
-            this.listVisible = true;
-        } else {
-            animationsUtils.slideUp(this.listElements, 150, 'ease-in', 'hidden');
-            this.listVisible = false;
-        }
     }
 }

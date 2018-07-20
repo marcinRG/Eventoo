@@ -1,5 +1,6 @@
 import {IComboBoxProperties} from './IComboBox.Properties';
 import {ISelectableList} from './ISelectableList';
+import {animationsUtils} from './animations.utils';
 
 export function createHTMLElements(properties: IComboBoxProperties) {
     const inputTxtClass = properties.txtInputClass || 'input-txt';
@@ -25,16 +26,14 @@ export function createHTMLElements(properties: IComboBoxProperties) {
     }
 }
 
-export function createListElements(list: ISelectableList<any>, htmlListElement: HTMLElement,
+export function createListElements(list: ISelectableList<any>, values: any[], htmlListElement: HTMLElement,
                                    listElementClass: string, comboBox: object, callback: any) {
     if (htmlListElement) {
         htmlListElement.innerHTML = null;
-        const values = list.values;
         for (const elem of values) {
             const liElem = document.createElement('li');
             liElem.textContent = list.getTitle(elem);
             const uniqueID = list.getUniqueID(elem);
-            console.log(uniqueID);
             liElem.setAttribute('data-list-nr', uniqueID);
             liElem.addEventListener('click', () => {
                 callback.apply(comboBox, [uniqueID]);
@@ -45,22 +44,44 @@ export function createListElements(list: ISelectableList<any>, htmlListElement: 
     }
 }
 
-export function createFilteredListElements(query: string, maxLength: number, list: ISelectableList<any>,
-                                           htmlListElement: HTMLElement, listElementClass: string, comboBox: object,
-                                           callback: any) {
-    if (htmlListElement) {
-        htmlListElement.innerHTML = null;
-        const values = list.filteredValues(query, maxLength);
-        for (const elem of values) {
-            const liElem = document.createElement('li');
-            liElem.textContent = list.getTitle(elem);
-            const uniqueID = list.getUniqueID(elem);
-            liElem.setAttribute('data-list-nr', uniqueID);
-            liElem.addEventListener('click', () => {
-                callback.apply(comboBox, [uniqueID]);
-            });
-            liElem.classList.add(listElementClass);
-            htmlListElement.appendChild(liElem);
+export function getDropdownListHeight(values: any[], ulElement: HTMLElement, maxSize: number): number {
+    const liHeight = calculateLiElementHeight(ulElement);
+    let elementCount = values.length;
+    if (elementCount > 0 && maxSize > 0) {
+        if (elementCount > maxSize) {
+            elementCount = maxSize;
         }
+        return liHeight * elementCount;
     }
+    return 0;
+}
+
+function calculateLiElementHeight(ulParent: HTMLElement) {
+    let height = null;
+    const li = ulParent.querySelector('li');
+    const previousVisibility = window.getComputedStyle(ulParent).visibility;
+    const previousDisplay = window.getComputedStyle(ulParent).display;
+    ulParent.style.visibility = 'hidden';
+    ulParent.style.display = 'block';
+    if (li) {
+        height = li.offsetHeight + 1;
+    }
+    ulParent.style.display = previousDisplay;
+    ulParent.style.visibility = previousVisibility;
+    return height;
+}
+
+export function toggleListElements(listElements: HTMLElement, listVisible: boolean,
+                                   dropDownListHeight: number): boolean {
+    if (!listVisible) {
+        animationsUtils.slideDown(listElements, 150, 'ease-in', 'auto', dropDownListHeight);
+    } else {
+        animationsUtils.slideUp(listElements, 150, 'ease-in', 'hidden');
+    }
+    return !listVisible;
+}
+
+export function showList(listElements, overflow, dropDownListHeight) {
+    animationsUtils.slideDown(listElements, 150, 'ease-in',
+        overflow, dropDownListHeight);
 }

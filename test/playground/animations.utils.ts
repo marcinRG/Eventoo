@@ -13,14 +13,14 @@ class AnimationsUtils {
         }
     }
 
-    public slideDown(elem, time, ease, overflowStyle) {
-        const height = this.getElementHeight(elem);
+    public slideDown(elem, time, ease, overflowStyle, height?) {
+        const elemHeight = (!!!height) ? this.getElementHeight(elem) : height;
         elem.style.overflow = overflowStyle;
         elem.style.height = 0 + 'px';
         elem.style.display = this.isDisplayedString;
         elem.removeAttribute(this.hiddenAttribute);
         Velocity(elem, {
-            height: height + 'px',
+            height: elemHeight + 'px',
         }, {
             duration: time,
             easing: ease,

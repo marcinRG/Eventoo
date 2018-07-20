@@ -16,18 +16,12 @@ buttonOne.addEventListener('click', () => {
 });
 
 buttonTwo.addEventListener('click', () => {
-    console.log('b2 click');
     animationsUtils.slideToggle(elementTwo, 1500, 'ease-out');
 });
 
 buttonThree.addEventListener('click', () => {
     animationsUtils.slideToggle(elementThree, 500, 'ease-out');
 });
-
-const obj = {
-    x: '234',
-    z: 450,
-};
 
 const list = [
     'element 1',
@@ -63,8 +57,10 @@ const txtArray2 = new PlainTextArray(list2);
 const comboBox = new ComboBox({
     querySelectorString: '#combo-box-1',
     listElementClass: 'li-elem',
+    maxSize: 5,
 }, txtArray);
 const comboBox2 = new DynamicComboBox({
     querySelectorString: '#combo-box-2',
     listElementClass: 'li-elem',
+    maxSize: 4,
 }, txtArray2);

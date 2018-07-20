@@ -6,4 +6,5 @@ export interface IComboBoxProperties {
     btnInputClass?: string;
     listClass?: string;
     listElementClass: string;
+    maxSize: number;
 }
